@@ -1,0 +1,727 @@
+%% intro.tex
+%% Copyright (C) 2014 by Thomas Auzinger <thomas.auzinger@cg.tuwien.ac.at>
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status `maintained'.
+%
+% The Current Maintainer of this work is Thomas Auzinger.
+%
+% This work consists of the files vutinfth.dtx and vutinfth.ins
+% and the derived file vutinfth.cls.
+% This work also consists of the file intro.tex.
+
+
+\newacronym{ctan}{CTAN}{Comprehensive TeX Archive Network}
+\newacronym{faq}{FAQ}{Frequently Asked Questions}
+\newacronym{pdf}{PDF}{Portable Document Format}
+\newacronym{svn}{SVN}{Subversion}
+\newacronym{wysiwyg}{WYSIWYG}{What You See Is What You Get}
+
+\newglossaryentry{texteditor}
+{
+  name={editor},
+  description={A text editor is a type of program used for editing plain text files.}
+}
+
+
+In this chapter, we present the computational results obtained by our integer linear formulations for shift design and break scheduling problems. We will explain the environment for both problems first and we will give further details separately in two subsections based on our two problems. In each subsection, first of all different benchmark instances for both problems will be introduced and afterwards present the experiments based on different parameters or ILP solver. In the last stage the results will be compared with the best result, that obtained up to date.
+
+The formulations presented were implemented using Java programming language in Eclipse. Furthermore, the simplex algorithm and branch and bound search are performed by the Cplex ILP Solver 12.6. Cplex Solver solve integer programming
+formulation efficiently. We also experiment with Gurobi Solver version 5.6.3 and its performance is compared with the Cplex Solver for minimum shift design problem. We have used Cplex Solver with default parameters in the first step, however, in some instances, which take too long times, we have changed some parameters to terminate the branch and bound to decrease run time. This change will be explained in details.
+
+All experiments were performed on a machine, 2.4GHz Intel Core i5 CPU and 8.00 GB of RAM
+
+\section{Shift Design}
+
+For the computational result of the shift design problem, we will explain first how these data sets are generated. In the second part, we will give our results and we will compare them with the best solutions in the state-of-the-art.
+
+\subsection{Description of the Instances}
+
+We have used the four different sets of problem instances for our experiments. The detail information about the data sets can be obtained and the instances can be downloaded from the link below,\\
+
+
+\url{http://www.dbai.tuwien.ac.at/proj/Rota/benchmarks.html} \\
+
+These first three benchmark set is randomly generated and the data set 4 is the only one, that have data of real life instance. These data sets are the only example for the shift design problem, that has been first introduced in \cite{li:2004:musliu} \cite{li:2001:musliu}. The further investigations are used in these instances to compare their results in the literature (\cite{li:2004:musliu} \cite{li:2010:abseher} \cite{li:2007:gaspero}). 
+
+\subsubsection{Data Set 1}
+The first data set is randomly generated. These instances have neither shortages, nor excesses of employees in each time slot. Therefore, the solution of shifts is generated based on shift start and shift length. For each shift type 1 to 5 shifts are generated randomly with equal probability. The slot length is chosen randomly to be 15, 30 or 60 minutes. The number of duties for each generated shift is chosen randomly between 1 to 5 duty. The week days have the same number of duties with 0.9 probability and for the weekend the probability of the value changes is 0.6. Each shift has the same number of duties on Saturday and Sunday with probability 0.9. Weights of shortages and excesses are 1 and shift weight is equal to the slot length (15, 30 or 60).
+
+\subsubsection{Data Set 2}
+The second set is generated similar to the first data set. There are not any over- or under-cover of workers. However, the first 10 instances (1-10) generated based on 12 shifts, the second 10 instances (11-20) have 16 shifts and the remaining 10 instances (21-30) consists of 20 shifts. The relation between shift number can be tested with these instances in this data set. 
+
+\subsubsection{Data Set 3}
+The third set is generated same as first two datasets, however, shifts are constructed also invalid up to 4 time slots, with deviating from normal starting times and lengths. The same number of shifts (valid and invalid shifts) used as in data set 2. These invalid shifts end up with deviation solutions, due to the existence of under- or over-staffing. Therefore, this data set is significant to compare approaches.
+
+\subsubsection{Data Set 4}
+The last data set consist of three instances, the first one is a real life instance, taken from a call center, instead of randomly generated ones. The second and third one is modified from the instance number 5 from set 3. The second instance has 30 minutes slot length instead of 60 minutes and the third one have doubled workforce.
+
+\subsection{Computational Results }
+
+For shift design problem, Cplex and Gurobi Solvers were used to solve integer linear programming formulations. The first and second data sets are generated without any under- or over-staffing. Therefore, to find optimal solutions are easier than the third data set. 
+
+In Table~\ref{tbl:dataset1} and Table~\ref{tbl:dataset2}, we present the optimum solution, number of shifts and the run time (in second) of Cplex and Gurobi Solver for the data set 1 and data set 2. The run time of the existing result will be discussed in the next section for data set 1. We only run these two data sets once in both ilp solvers and except one instance (27.) in data set 2, we have obtained the optimum solutions, that have been already found in state-of-the-art \cite{li:2007:gaspero} \cite{li:2010:abseher}. 
+
+
+\begin{table} \small
+\centering
+\begin{tabular}{ccccccc}
+\hline
+ Instance & Best  & Nr. Of  & Cplex & Gurobi  & Existing  & Resource \\
+ Instance & Solution & Shifts &  &   & Solutions &  \\
+\hline
+1 &  480	& 8 & 0 & 0 & 0.07 & \cite{li:2007:gaspero}\\
+
+2 &  300	& 10 & 14 & 75 & 16.41 & \cite{li:2007:gaspero} \\
+
+3 &  600 	& 10 & 0 & 1 & 0.11 & \cite{li:2007:gaspero}  \\
+
+4 &  450	& 15 & 14 & 169 & 26.75 & \cite{li:2010:abseher} \\
+
+5 &  480	& 8 & 0 & 1 & 0.2  &  \cite{li:2007:gaspero}\\
+
+6 &  420	& 7 & 0 & 0 & 0.06 & \cite{li:2007:gaspero}\\
+
+7 &  270	& 9 & 0 & 8 & 1.13 & \cite{li:2007:gaspero}\\
+
+8 &   150	& 10 & 3 & 61 & 10.64 & \cite{li:2007:gaspero}\\
+
+9 &  150	& 10 & 1 & 26 & 3.53 & \cite{li:2007:gaspero}\\
+
+10&  330	& 11 & 1 & 17 &  23.19 &  \cite{li:2010:abseher} \\
+
+11 &  30	& 2 & 1 & 1 &0.21 & \cite{li:2007:gaspero}\\
+
+12 &  90	& 6 & 1 & 4 &0.25 & \cite{li:2007:gaspero}\\
+
+13 &  105 	& 7 & 1 & 13  & 0.35 &  \cite{li:2007:gaspero}\\
+
+14 &  195	& 13 & 56 & 318 & 60.97 & \cite{li:2007:gaspero}\\
+
+15 &  180	& 3 & 0 & 0  & 0.04  &\cite{li:2007:gaspero} \\
+
+16 &  225	& 15 & 65 &  258 & 151.78 & \cite{li:2007:gaspero} \\
+
+17 &  540	& 18 & 29 & 1334   & 288.42 &\cite{li:2007:gaspero}\\
+
+18 &   720	& 12 & 0 & 8 & 1.71  & \cite{li:2007:gaspero}\\
+
+19 &  180	& 12 & 7 & 163 & 126 & \cite{li:2007:gaspero} \\
+
+20 &   540	& 9 & 0 & 2 & 0.11  & \cite{li:2007:gaspero}\\
+
+21 &  120	& 8 & 1 & 18 & 0.28 & \cite{li:2007:gaspero}  \\
+
+22 &  75	& 5 & 1 & 7  & 0.65 & \cite{li:2007:gaspero}\\
+
+23 &  150 	& 10 & 2 & 77 & 6.19  & \cite{li:2007:gaspero}   \\
+
+24 &  480	& 8 & 0 & 4   & 0.11 & \cite{li:2007:gaspero}\\
+
+25 &  480	& 16 & 43 & 234  & 26.38 & \cite{li:2010:abseher}     \\
+
+26 &  600	& 10 & 1 & 27 & 1.5 & \cite{li:2007:gaspero} \\
+
+27 &  480	& 8 & 0 & 2 & 0.07 & \cite{li:2007:gaspero} \\
+
+28 &   270	& 9 & 0 & 14 & 2.24  &  \cite{li:2007:gaspero}\\
+
+29 &  360	& 12 & 1 & 27 & 10 & \cite{li:2007:gaspero} \\
+
+30 &  75	& 5 & 1 & 5 & 0.26 & \cite{li:2007:gaspero} \\
+\hline
+\end{tabular}
+\caption{Times (in seconds) to reach the best known solution using Cplex and Gurobi Solver and best solution in the state-of-the-art for Data Set 1}
+\label{tbl:dataset1}
+\end{table}
+
+We found all the optimal solution within a short time for the first data set. Cplex Solver reaches these optimal solutions in shorter time than Gurobi Solver. Especially in instance 17, Gurobi Solver needs much longer time, although it also found all the optimal solutions for data set 1.
+
+
+\begin{table} \small
+\centering
+\begin{tabular}{ccccc}
+\hline
+ Instance & Best Solution & Nr. Of Shifts & Cplex & Gurobi   \\
+  &  Solution & Shifts &  &    \\
+\hline
+1 &  720	& 12 & 4 & 7 \\
+
+2 &  720	& 12 & 3 & 4  \\
+
+3 &  360 	& 12 & 11 & 19   \\
+
+4 &  360	& 12 & 4 & 7    \\
+
+5 &  720	& 12 & 4 & 6 \\
+
+6 &  360	& 12 & 3 & 4  \\
+
+7 &  720	& 12 & 1 & 3  \\
+
+8 &   180	& 12 & 406 & 1162 \\
+
+9 &  360	& 12 & 10 & 11 \\
+
+10&  660	& 11 & 9 & 16  \\
+
+11 &  480	& 16 & 465 & 1947 \\
+
+12 &  900	& 15 & 41 &  9 \\
+
+13 &  900 	& 15 & 29 &  5 \\
+
+14 &  840	& 14 & 9 &  3 \\
+
+15 &  480	& 16 & 318 &  528   \\
+
+16 &  240	& 16 & 36 & 24 \\
+
+17 &  960	& 16 & 24 & 2  \\
+
+18 &   840	& 14 & 28 &  14 \\
+
+19 &  240	& 16 & 90 &  59 \\
+
+20 &   960	& 16 & 11 & 1 \\
+
+21 &  600	& 20 & 101 & 79   \\
+
+22 &  1080	& 18 & 20 & 20  \\
+
+23 &  300 	& 20 & 684 &  > 7200   \\
+
+24 &  600	& 20 & 82 & 1300   \\
+
+25 &  600	& 20 & 39 &  118    \\
+
+26 &  1020	& 17 & 10 &  29 \\
+
+27 &  	&  &  & > 7200  \\
+
+28 & 300 	& 20 & 424 & > 7200  \\
+
+29 & 1140	& 19 & 30 & 16 \\
+
+30 &  1020	& 17 & 28 &  53 \\
+\hline
+\end{tabular}
+\caption{Times (in seconds) to reach the best known solution using Cplex and Gurobi Solver for Data Set 2}
+\label{tbl:dataset2}
+\end{table}
+
+
+
+As shown in the Table~\ref{tbl:dataset2}, the instance number 27 in data set 2, we terminated after the run reached some amount of time in Cplex Solver. To solve this instance, we will change the default parameter of Cplex, with restricting  the run time or the gap between the optimal solution and the founded best integer solution. Normally the Cplex run until this gap is equal to 0 percent, that prove the optimality. We will present these parameters and modifications in the next section in details.
+
+Cplex Solver shows mostly better performance compared to Gurobi Solver also in data set 2, however, in this data set Gurobi Solver has a shorter run time  in several examples. Gurobi Solver could not solve three instances in this data set (23. - 27. - 28.) because the run time exceeds over 2 hours time limit.
+
+
+The third data sets are generated with invalid shifts. This cause excesses and shortages of employees in each time slot. The complexity of the problem is increased and to reach the optimal solution become harder. However, we have found really good results, compared to the existing results in the literature.  
+
+For data set 3, we present our solution in two tables based on integer linear programming solver with objective function value, over-staffing, under-staffing, number of shifts and the run time  (in second) of Cplex Solver (Table~\ref{tbl:dataset3cplex}) and Gurobi Solver (Table~\ref{tbl:dataset3gurobi}). We also run this data set once in both ilp solvers and for a few instances the run times were over 2 hours. We consider changing Cplex parameters for these instances in the further section.
+
+
+
+\begin{table} \small
+\centering
+\begin{tabular}{ccccccc}
+\hline
+ Instance & Best & Nr. Of & Nr. Of  & Nr. Of   & CPU   \\
+ & Solution & Shifts & Undercover & Overcover & Time  \\
+\hline
+1 &  2385	& 13 & 825 & 1365 & 1   \\
+
+2 &  7590	& 17 & 2550 & 4530 & 33  \\
+
+3 &  9540 	& 15 & 5280 & 3810 & 19    \\
+
+4 &  6540	& 15 & 960 & 5130 & 51 \\
+
+5 &  9720	& 11 & 3240 & 5820 & 4     \\
+
+6 &  2070	& 14 & 510 & 1350 & 8  \\
+
+7 &  6075	& 15 & 4755 & 1095 & 7    \\
+
+8 &   8580	& 13 & 3630 & 4560 & 1  \\
+
+9 &  6000	& 17 & 2850 & 2895 & 47  \\
+
+10 &  2940	& 18 & 1410 & 990 & 30   \\
+
+11 &  5190	& 16 & 2610 &2100 & 199   \\
+
+12 &  4110	& 25 & 750 & 2985 & 143  \\
+
+13 &  4605 	& 25 & 2370 & 1860 & 14604   \\
+
+14 &  9600	& 17 & 3000 & 5580 & 61  \\
+
+15 &  11250	& 18 & 4230 & 6480 & 166     \\
+
+16 &  10620	& 10 & 5580 &  4440 & 49  \\
+
+17 &  4680	& 19 & 2370 & 2025 & 210   \\
+
+18 &   6540	& 18 & 1500 & 4500 & 166  \\
+
+19 &  	&  &  & & > 7200   \\
+
+20 &   8910	& 18 & 7320 & 1050 & 21  \\
+
+21 &  	&  &  &   &  > 7200  \\
+
+22 &  12600	& 15 & 3900 & 8250 & 31   \\
+
+23 &  8280 	& 15 & 4620 & 2760 & 7  \\
+
+24 &  10260	& 16 & 5760 & 3540 & 5  \\
+
+25 &  13020	& 15 & 6660 & 5460 & 4     \\
+
+26 &  12780	& 16 & 4770 & 7530 & 145  \\
+
+27 &  10020	& 16 & 4920 & 4140 & 3   \\
+
+28 &   10440	& 17 & 4020 & 5400 & 7  \\
+
+29 &  6510	& 19 & 4740 & 1200  & 295 \\
+
+30 &  13320	& 14 & 5040 & 7440 & 4   \\
+\hline
+\end{tabular}
+\caption{Times (in seconds) to reach the best known solution using Cplex Solver for Data Set 3}
+\label{tbl:dataset3cplex}
+\end{table}
+
+
+
+\begin{table} \small
+\centering
+\begin{tabular}{ccccccc}
+\hline
+ Instance & Best & Nr. Of & Nr. Of  & Nr. Of   & CPU   \\
+ & Solution & Shifts & Undercover & Overcover & Time  \\
+\hline
+1 &  2385	& 13 & 825 & 1365 & 5   \\
+
+2 &  7590	& 17 & 2400 & 4680 & 26  \\
+
+3 &  9540 	& 15 & 5280 & 3810 & 23    \\
+
+4 &  6540	& 15 & 1260 & 4830 & 4698 \\
+
+5 &  9720	& 11 & 3420 & 5640 & 15     \\
+
+6 &  2070	& 14 & 510 & 1350 & 44  \\
+
+7 &  6075	& 15 & 4755 & 1095 & 29    \\
+
+8 &   8580	& 13 & 3630 & 4560 & 24  \\
+
+9 &  6000	& 18 & 2760 & 2970 & 128  \\
+
+10 &  2940	& 18 & 1470 & 930 & 48   \\
+
+11 &  5190	& 16 & 2610 &2100 & 3731   \\
+
+12 &  	&  &  &  & >7200  \\
+
+13 &   	&  &  &  & >7200    \\
+
+14 &  9600	& 17 & 2880 & 5700 & 61  \\
+
+15 &  11250	& 18 & 4230 & 6480 & 770     \\
+
+16 &  10620	& 10 & 5400 &  4620 & 18  \\
+
+17 &  4680	& 19 & 2550 & 1845 & 1559   \\
+
+18 &   6540	& 18 & 1560 & 4440 & 851  \\
+
+19 &  	&  &  & & > 7200   \\
+
+20 &   8910	& 18 & 7320 & 1050 & 9817  \\
+
+21 &  	&  &  &   &  > 7200  \\
+
+22 &  12600	& 14 & 4050 & 8130 & 16505   \\
+
+23 &  8280 	& 16 & 4800 & 2520 & 23  \\
+
+24 &  10260	& 16 & 5100 & 4200 & 5  \\
+
+25 &  13020	& 15 & 6840 & 5280 & 12     \\
+
+26 &  	&  &  & & > 7200   \\
+
+27 &  10020	& 15 & 5220 & 3900 & 8   \\
+
+28 &   10440	& 17 & 4860 & 4560 & 34  \\
+
+29 &  	&  &  &   &  > 7200  \\
+
+30 &  13320	& 14 & 4680 & 7800 & 14   \\
+\hline
+\end{tabular}
+\caption{Times (in seconds) to reach the best known solution using Gurobi Solver for Data Set 3}
+\label{tbl:dataset3gurobi}
+\end{table}
+
+In third data set, Gurobi Solver could not obtain solution for 5 instances with 2 hours time limit and the run takes longer time than Cplex Solver. In several instances, Gurobi Solver finds the optimal solutions differently from Cplex Solver. That is, Gurobi Solver obtained not only  fewer or more under-  and over-staffing, but also one fewer or one more number of shifts, although the objective function values are the same.
+
+The result of the last data set is shown in Table~\ref{tbl:dataset4}. The second and third instances of dataset 4 are the modification of  the 5. instance of dataset 3. Therefore, we added the result of it in the last column to show difference easier.
+
+\begin{table} \small
+\centering
+\begin{tabular}{cccccc}
+\hline
+ Instance & Best & Nr. Of & Nr. Of  & Nr. Of   & CPU   \\
+ & Solution & Shifts & Undercover & Overcover & Time \\
+\hline
+4-1 &  18420	& 12 & 10320 & 7740 & 1 \\
+
+4-2 &  9720	& 11 & 3000 & 6060 & 90 \\
+
+4-3 &  18780 & 11 & 7080 & 11040 & 18   \\
+
+3-5 &  9720	& 11 & 3240 & 5820 & 4     \\
+\hline
+\end{tabular}
+\caption{Times (in seconds) to reach the best known solution using Cplex Solver for Data Set 4 and 5. instance of Data Set 3}
+\label{tbl:dataset4}
+\end{table}
+
+
+The real life instance (4-1) run only one second and found 12 feasible shifts. The second instance has half of the slot length of the 5. instance from the data set 3. As a result of this modification, the objective function have the same value with different under- and over-staffing and take a lot more time. The third one have doubled workforce, this modification ends up with a double objective function value, with also different excesses and shortages of workers and has also more run time.
+
+\begin{table} \small
+\centering
+\begin{tabular}{cccccc}
+\hline
+ Instance & Best & Nr. Of & Nr. Of  & Nr. Of   & CPU   \\
+ & Solution & Shifts & Undercover & Overcover & Time \\
+\hline
+4-1 &  18420	& 12 & 10440 & 7620 & 1 \\
+
+4-2 &  9720	& 11 & 3720 & 5340 & 170 \\
+
+4-3 &  18780 & 11 & 7440 & 10680 & 28   \\
+
+3-5 &  9720	& 11 & 3420 & 5640 & 15     \\
+\hline
+\end{tabular}
+\caption{Times (in seconds) to reach the best known solution using Gurobi Solver for Data Set 4 and 5. instance of Data Set 3}
+\label{tbl:dataset4}
+\end{table}
+
+Gurobi Solver obtain also an optimum solution in one second for the real life instance (4-1).  The objective function of the second instance has the same value with different under- and over-staffing and take a lot more time also with Gurobi Solver. The third one ends up with a double objective function value, with also different excesses and shortages of workers.
+
+In the next step, we will present the Cplex parameters and apply Cplex Solver again with different parameter values to have efficient solutions for several instances, which have running time more than two hours (27. Instance from Data set 2 and Instance 13-19-21 from Data set 3). 
+
+As a summary of the comparison between Cplex and Gurobi Solvers, Cplex Solver is faster than Gurobi Solver, both have the optimal values, however Gurobi Solver could not obtain optimal solutions for more instances due to two hours run time limit. Therefore, we will prefer to use Cplex Solver in the further runs.
+
+ 
+\subsection{Computational Results with some Limitation in Cplex Parameters }
+
+For our experimentations, we have used 3 different parameters in Cplex Solver. These parameters speed up the process, meanwhile change the optimality tolerance. One of these parameters is a time limit to terminate the ILP-Solver and the remaining two other parameters are related to gap value between the best founded integer solution and optimal solution. These three parameters are defined in Cplex as follows,
+
+\begin{itemize}
+\item TiLim : This parameter is time limit in Cplex solver, it can be set in seconds.
+\item EpGap : Relative optimality tolerance set a certain percentage of gap to the optimal solution. This parameter can be between 0 and 1.
+\item EpAGap : Absolute optimality tolerance set an absolute range of the optimal solution. This parameter can be any positive number.
+ \end{itemize}
+
+If the objective function is a small number close to 0, then it is more reasonable to use absolute gap, thus small numbers are less useful in optimality tolerance.
+
+These parameters are illustrated in Cplex Solver as follows,
+
+\begin{lstlisting}
+cplex.setParam(IloCplex.DoubleParam.TiLim, 3600);
+cplex.setParam(IloCplex.DoubleParam.EpGap, 0.1);
+cplex.setParam(IloCplex.DoubleParam.EpAGap, 30);
+\end{lstlisting}
+
+The result of the instances, that are over the time limit in data set 2 and data set 3, are run with different parameters in Cplex and the results are shown in Table~\ref{tbl:parameter}. We have set the time limit parameter to half an hour and an hour and the EpAGap value 30. We have tried different values for EpGap parameter for the instance in data set 2 and instances in data set 3. Because, data set 3 has also thousands of shortages and excesses of workers and it increases the objective functions. The value of EpGap is related with the objective function. 
+
+For instance, the optimum value of instance 27 in data set 2 is 300, according to \cite{li:2010:abseher}. If we use the EpGap value is equal to $\%$ 2, the gap is set around 6 for optimum value around 300. As we know that in data set 2, the objective function is the cost of number shift. And the cost of each shift is 15 (for slot length = 15). Therefore, the gap of 6 between the founded integer value and optimal solution is too small. 
+
+
+
+\begin{table} \small
+\centering
+\begin{tabular}{llccccc}
+\hline
+ Instance & Paramater & Best & Time & Nr. Of & Nr. Of  & Nr. Of   \\
+ &  & Solution &  & Shifts & Undercover & Overcover \\
+\hline
+2-27 &  EpGap =  \% 20	& 330 		& 473	&  22 & 0 & 0  \\
+
+2-27 &  EpGap = \% 10	& 315 		& 655	&  21 & 0 & 0  \\
+
+2-27 &  EpAGap = 	\% 5   & -		& > 7200	&  - & - & -   \\
+
+2-27 &  EpAGap =  30	& -		& > 7200	&  - & - & -   \\
+
+2-27 &  TiLim = 1800	& 315 		&  1800	&  21	&  0 & 0 \\
+
+2-27 &  TiLim = 3600	 & 315 	&  3600	&  21	&  0 & 0 \\
+
+3-13 &  EpGap = \% 2	& 4620 	& 120 & 26 & 2250  & 1980 \\
+
+3-13 &  EpGap = \%1	& 4605 	& 181 & 25 & 2370  & 1860 \\
+
+3-13 &  EpGap =  \% 0.5 	& 4605	& 866 & 25 & 2370  & 1860 \\
+
+3-13 &  EpAGap = 30  	& 4605	& 448 & 25 & 2370  & 1860 \\
+
+3-13 &  TiLim =  1800	& 4605	& 1800 & 25 & 2370  & 1860 \\
+
+3-13 &  TiLim = 3600	 & 4605	& 3600 & 25 & 2370  & 1860 \\
+
+3-19 &  EpGap =   \% 2 	& 4905 & 92 & 24 & 3060  & 1485 \\
+
+3-19 &  EpGap =  \% 1  	& 4890 & 986 & 23 & 3645  & 900 \\
+
+3-19 &  EpGap =   \% 0.5 	& - & > 7200 & - & -  & - \\
+
+3-19 &  EpAGap = 30  	& - & > 7200 & - & -  & - \\
+
+3-19 &  TiLim =  1800	& 4890 & 1800 & 23 & 3645  & 900  \\
+
+3-19 &  TiLim = 3600	& 4890 & 3600 & 23 & 3645  & 900  \\
+
+3-21 &  EpGap =   \% 2 	& 5970 & 1046 & 32 & 2400  & 3090 \\
+
+3-21 &  EpGap =  \% 1 	& 5925 & 2026 & 29 & 2430  & 3060 \\
+
+3-21 &  EpGap =   \% 0.5 	& - & > 7200 & - & -  & - \\
+
+3-21 &  EpAGap = 30  	& - & > 7200 & - & -  & - \\
+
+3-21 &  TiLim =  1800	& 5925 	&  1800 & 29 & 2430  & 3060 \\
+
+3-21 &  TiLim = 3600	& 5925 	&  3600	& 29 & 2430  & 3060 \\
+\hline
+\end{tabular}
+\caption{Times (in seconds) and Results using different parameters in Cplex Solver for Data Set 4 and 5. instance of Data Set 3}
+\label{tbl:parameter}
+\end{table}
+
+The results of the instances with different parameters show that some of the parameters did not help us to find a solution, however, we have obtained good results also. We reached the best results of these instances by setting EpGap value to 0.01 ($\%1$ Gap) for data set 3 and to 0.1 ($\%10$ Gap) for data set 2, the more gap value ends up with more objective function value and the less gap does not change the result and increase the run time. Meanwhile, we have obtained 315 as a result of the instance 27 in data set 2, however, this result is not the optimum solution considering to the article \cite{li:2010:abseher}.
+
+
+We will use the best results, that we achieve in this section, to compare our results with the existing state of the art's results in the literature in following part.
+
+
+\subsection{Comparison with Existing Results}
+
+In this section, we will compare  our results, that we achieved the best results for each instance with the best existing result for each instance in the state of the art, these previous results are investigated by Di Gaspero et al. in \cite{li:2007:gaspero}, Musliu et al. in \cite{li:2004:musliu} and in master thesis of Abseher in \cite{li:2010:abseher}.  Di Gaspero et al. published their results for the data set 1 and data set 3. Therefore, we will compare our results for two data sets. 
+
+First, we will present shortly these previous approaches and give the information about the environment of these machines to compare with our solution. In \cite{li:2004:musliu} \cite{li:2007:gaspero} \cite{li:2010:abseher} , the following approaches were proposed:
+\begin{itemize}
+
+\item LS :  A local search solvers with a set of move types to explore the neighbourhood, is proposed by Musliu et al. \cite{li:2004:musliu}. In order to avoid cycles in the move selection process, tabu search mechanism is used. 
+
+\item GrMCMF : A greedy construction heuristic based on min-cost max-flow is proposed by  Di Gaspero et al. \cite{li:2007:gaspero}. 
+
+\item GrMCFC+LS : The hybrid solver is proposed by  Di Gaspero et al. \cite{li:2007:gaspero}.  The initial solution is constructed using new greedy heuristic based on min-cost max-flow. Shifts are edges and workforces are the edge flows. In the second stage, the local search paradigm is used to explore the neighbourhood. 
+\item ASP : Different modelling approaches using answer set programming are proposed by Abseher \cite{li:2010:abseher}, but the performance could not be improved obtained by solving the shift design problem using the heuristic-based approaches in \cite{li:2007:gaspero}. Therefore, we compare these works just in data set 1 to compare run time.
+
+
+\end{itemize}
+
+The local search approaches were implemented in C++ in the EASYLOCAL++ framework and GNU g++ compiler version 3.2.2 is used to compile. The experiments were performed on a machine, 1.5 GHz AMD Athlon PC running Linux kernel 2.4.21. The greedy constructed heuristic was coded in MS Visual Basic and runs on a MS Windows NT 4.0 computer. Approaches based on answer set programming are implemented on a machine Intel Xeon E5345 @ 2.33GHz 8 CPU-Cores and with a main memory 48 GB.
+
+As we mentioned before, data set 1 consists of instances without under- or over-staffing. Therefore, the optimum results are achieved easily for existing results in the state-of-the-art. We compare only our run times with the shortest needed time of each instance from the works of Di Gaspero et al. \cite{li:2007:gaspero} or Abseher \cite{li:2010:abseher} to reach their best known solutions. These results are presented in Table~\ref{tbl:dataset1}. 
+
+Cplex Solver obtain the optimal solution with a less run time compared to the existing approaches in the state-of-the-art, Only in instance number 25 in data set 1, Abseher found the solution in shorter time.
+
+The comparison of the results for the third data set is shown in Table~\ref{tbl:comparedataset3}. We have achieved really good results with using Cplex Solver and found the optimal solution for almost all instances. The instances 13 - 19 - 21, we have used Cplex parameters, therefore we are not able to know that the results for these instances are optimal, however these results were also better than the best known solutions. We have already presented our run time for data set 3 in Table~\ref{tbl:dataset3cplex} and for the instances 13 - 19 - 21 in Table~\ref{tbl:parameter}
+
+
+\begin{table} \small
+\centering
+\begin{tabular}{cccccc}
+\hline
+ Instance & Cplex &  GrMCMF & LS  & GrMCMF+LS  \\\hline
+
+1 &  2385 & 2,445.00 & 9,916.35 & 2,386.80 \\
+
+2 & 7590 & 7,672.59 & 9,582.00 & 7,691.40 \\
+
+3 & 9540 & 9,582.14 & 12,367.50 &  9,597.00  \\
+
+4 & 6540 & 6,634.40 & 8,956.50 & 6,681.60 \\
+
+5 & 9720 & 10,053.75 & 10,311.60 & 9,996.00 \\
+
+6 & 2070 & 2,082.17 & 4,712.25 & 2,076.75 \\
+
+7 & 6075 & 6,075.00 & 12,251.70 & 6,087.00 \\
+
+8 & 8580 & 9,023.46 & 10,512.60 & 8,860.50 \\
+
+9 & 6000 & 6,039.18 & 11,640.60 & 6,036.90 \\
+
+10 & 2940 & 2,968.95 & 4,067.10 & 3,002.40 \\
+
+11 &  5190	& 5,511.43 & 7,888.20 & 5,490.90 \\
+
+12 &  4110	& 4,231.96 & 11,410.05 & 4,171.20 \\
+
+13 &  4605 & 4,669.50 & 10,427.55 & 4,662.00 \\
+
+14 &  9600	& 9,616.55 &  10,130.40 & 9,660.60 \\
+
+15 & 11250 & 11,448.90 & 13,563.60 & 11,445.00 \\
+
+16 &  10620	& 10,785.00 & 11,180.40& 10,734.00 \\
+
+17 &  4680	&  4,746.56 & 11,735.40 & 4,729.05 \\
+
+18 &   6540	&  6,769.41 & 9,516.60 & 6,692.40 \\
+
+19 &  4890 	& 5,183.16 & 10,825.20 & 5,157.45 \\
+
+20 &   8910	&  9,153.90 & 12,481.80 & 9,174.90 \\
+
+21 & 5925 & 6,072.86 & 14,102.55 & 6,053.55 \\
+
+22 &  12600	& 12,932.31 & 16,418.70 & 12,870.30 \\
+
+23 &  8280 	&  8,384.24 & 9,788.40 &  8,390.40 \\
+
+24 &  10260	& 10,545.00 & 11,413.20 & 10,417.80 \\
+
+25 &  13020	&  13,204.80 & 14,038.80 & 13,252.20 \\
+
+26 &  12780	&  13,152.73 & 17,326.50 & 13,117.80 \\
+
+27 &  10020	&  10,084.94 & 10,866.60 & 10,081.20 \\
+
+28 &   10440	&  10,641.21 & 11,543.40 & 10,603.80 \\
+
+29 &  6510	&  6,799.41 & 12,075.30 & 6,690.00 \\
+
+30 &  13320	& 13,770.68 & 14,808.60 & 13,723.80 \\
+\hline
+\end{tabular}
+\caption{Comparison of Solution Costs for Data Set 3}
+\label{tbl:comparedataset3}
+\end{table}
+
+\newpage
+\newpage
+
+
+
+
+\section{Break Scheduling}
+
+
+For the computational result of the break scheduling problem, we will explain first how these data sets are generated. In the second part, we will give our results and we will compare them with the best solutions in the state-of-the-art.
+
+
+\subsection{Description of the Instances}
+
+We have used the two different sets of problem instances for our experiments. The detail information about the data sets can be obtained and the instances can be downloaded from the link below, \\
+
+
+\url{http://www.dbai.tuwien.ac.at/proj/SoftNet/Supervision/Benchmarks/} \\
+
+These instances are generated from the benchmark of the shift design problem. Afterwards, break time is computed for each shift, and breaks are added between 10 to 20 minutes to the instance of the shift design problem, with satisfying the first five soft constraints of break scheduling problem ($C_0, C_1, C_2, C_3, C_4$). In the end, the needed numbers of employees in shift design problem instances are increased to these calculated number of working employees included breaks.
+
+There are also real life instances, that have used in existing result of break scheduling problem. There are not any information about these real life instances on the internet. 
+
+We have tried to run these instances also in our integer linear programming approach, however, our formulation is not convenient for these instances. Because, these instances have shifts with length more than 12 hours. As we mentioned before, we suppose that there will be 3 breaks before the lunch. Shift with a length of 12 hours consists of 36 number of time slots breaks with slot length 5. Considering 6 as lunch break and 3 times 10 minutes monitor breaks before lunch. We need to assign 12 breaks with 10 minute length after the lunch. Between these breaks, we need to consider the minimum working period 30 minutes. 
+
+Regarding all these constraints, our formulation is not sufficient with the long shifts. We will leave this part as a future work and obtain and compare our results for just the random example for break scheduling, that are used in previous results in state-of-the-art  \cite{li:2014:widl} \cite{li:2010:beer}. 
+
+\subsection{Computational Results }
+
+We have reached the best solution with Cplex Solver for shift design problem. Therefore, we use only Cplex Solver to solve integer linear programming formulation for break scheduling problem. The random instances, that have been used in existing result in the literature, are run to compare in the next stage. In this section, we will show our result for the several instances in 2 randomly generated data sets in Table~\ref{tbl:break1}.
+
+For break scheduling problem, we have restricted the problem and  used only the sum of excesses and shortages of workers in each time slot in the objective function, the variables are initialized as supposing the other soft constraints. We present in Table~\ref{tbl:break1}, the violations of these two remaining soft constraints, optimal solution and run time of the random generated instances.
+
+
+\begin{table} \small
+\centering
+\begin{tabular}{lccccc}
+\hline
+ Instance & Shifts(sdd) & Best & Time & Nr. Of  & Nr. Of   \\
+ &  Solution &  & Undercover & Overcover \\
+
+
+random1-1  & 137 & 	84	& 3106	&	7 & 7	\\
+random1-2  & 164 & 	228	& 1874 	&	19 &19	\\
+random1-5  & 141 & 	360	& 580 		&	 30 & 30 		\\	
+random1-7  & 157 &	228	& 7200	&	 72 & 72		\\
+random1-9  & 151 &	108	& 3654	&	  9  & 9	\\
+random1-13 & 124 &	348	& 1003	&	29 & 29	\\
+random1-24 & 137 &	408	& 540		&	34 & 34		\\
+random1-28 & 124 &	228	& 2349	&	19 & 19	\\	
+random2-1   & 179 &	636	& 7200	&	53 & 53	\\
+random2-4   & 162 &	144	& 3633	& 	12 & 12		\\
+
+\hline
+\end{tabular}
+\caption{The result of break scheduling problem with randomly generated instance}
+\label{tbl:break}
+\end{table}
+
+We have restricted our runs with two hours time limit and some of these instances found the optimal solutions before the time limit. However, these optimal solutions are found with the restricted formulation of break scheduling problem. It can be possible that optimal schedule have more or fewer breaks before lunch or more or less break time instead of each of them have 10 minutes length ..etc. For this reason, we can not guarantee optimality for break scheduling examples. The other ones, that run time is more than one hour we found feasible solutions, we can not be sure that these are optimal or not.
+
+\subsection{Comparison with Existing Results}
+
+In this section, we will compare  our results with the best existing result for each instance in the state of the art. Our formulation is not sufficient for the real life instance, therefore we will just compare with the generated random data set for break scheduling problem. 
+
+Widl et al. proposed MAPBS approach in \cite{li:2014:widl} \cite{li:2010:widl} \cite{li:2010:widlimp} based on memetic algorithm and achieve the best known results for break scheduling problem, in each random generated instance. The experiments, that we will compare with our results, were performed on a machine, 2.33GHz of a QuadCore Intel Xeon 5345 and with a main memory 48 GB. Three runs were executed simultaneously. Each instance runs 10 times with a time limit 3046 seconds. To compare our results, we decrease the time limit of our runs also to the same seconds. 
+
+The comparison of the results is shown in  Table~\ref{tbl:breakcomparison}
+
+
+
+
+
+
+\begin{table} \small
+\centering
+\begin{tabular}{lccccc}
+\hline
+ Instance &  Shifts(sdd) & Cplex & &  MAPBS \cite{li:2014:widl} \\
+
+ & & &  Best & Avg & $\sigma$ \\
+
+random1-1  & 137 & \textbf{84}	 & 	346	&	440	& 48	\\
+random1-2  & 164 & \textbf{228} 	& 	370	&	476	& 65	\\
+random1-5  & 141 & \textbf{360} 	&	378	&	418	& 29	\\	
+random1-7  & 157 & \textbf{408}	&	496	&	583 	& 42	\\
+random1-9  & 151 & \textbf{108}	&	318	&	423	& 51	\\
+random1-13 & 124 & \textbf{348}	&	370	&	445	& 55	\\
+random1-24 & 137 & \textbf{408}	&	542	&	611	& 43	\\
+random1-28 & 124 & \textbf{228}	&	\textbf{222}	&	318	& 71	\\	
+random2-1   & 179 & \textbf{636}	&	724	&	889	&  75	\\
+random2-4   & 162 & \textbf{144}	&	476	&	535 	& 45	\\
+
+\hline
+\end{tabular}
+\caption{The comparison with literature of break scheduling problem with randomly generated instance}
+\label{tbl:breakcomparison}
+\end{table}
+
+We obtain optimal solution for most of the instances in randomly generated datasets, for the restricted break scheduling problem formulation. As we stated before, we defined 3 breaks before the lunch and the length of each break 10 minutes and we initialize our instances satisfying the first 5 soft constaints. These restrictions can end up with failing to find optimal solution.  For instance, Cplex found the solution of the random1-28 instance, as optimal, however Widl et al. reached a better solution for this example, although our result is smaller than the average of the runs of memetic algorithm. 
+
+The instance random1-28 is the only random generated instance, that we could not obtain the best results, but except this random instance, we improved the best solutions for break scheduling problem.
+
+In several instances, we need to terminate our runs after exceeding the time limit. Although, we have found feasible solutions and these results are also generally improved the previous best solutions for break scheduling data set.
+
+As a summary, integer programming formulation for the restricted break scheduling problem with Cplex Solver obtain optimum or the best known solutions for randomly generated data sets . However, we formulated this problem with supposing each shift have 3 breaks before the lunch and this assumption ends up with too many breaks after the lunch break for the 12 hours or longer shifts. These assumptions must be reconsidered for the future works.

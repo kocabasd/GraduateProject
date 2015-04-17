@@ -1,0 +1,97 @@
+%% intro.tex
+%% Copyright (C) 2014 by Thomas Auzinger <thomas.auzinger@cg.tuwien.ac.at>
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status `maintained'.
+%
+% The Current Maintainer of this work is Thomas Auzinger.
+%
+% This work consists of the files vutinfth.dtx and vutinfth.ins
+% and the derived file vutinfth.cls.
+% This work also consists of the file intro.tex.
+
+
+\newacronym{ctan}{CTAN}{Comprehensive TeX Archive Network}
+\newacronym{faq}{FAQ}{Frequently Asked Questions}
+\newacronym{pdf}{PDF}{Portable Document Format}
+\newacronym{svn}{SVN}{Subversion}
+\newacronym{wysiwyg}{WYSIWYG}{What You See Is What You Get}
+
+\newglossaryentry{texteditor}
+{
+  name={editor},
+  description={A text editor is a type of program used for editing plain text files.}
+}
+
+
+\section{Motivation}
+
+In this thesis, we investigated an integer programming approach to solve two NP-hard problems, shift design and break scheduling. These two problems are variants of the shift scheduling problem and are introduced recently in the literature. The shift scheduling problem has been first introduced by Edie (1954 )\cite{li:1954:edie} in the context of toll booth operators scheduling. Solving this shift scheduling problem was originally proposed by Dantzig \cite{li:1954:dantzig} by the set covering formulation. The shift scheduling problem today is very different from the one introduced by Dantzig \cite{li:1954:dantzig} and Edie \cite{li:1954:edie}. The relative importance of needed employees in scheduling decision has grown due to the economic considerations. Part time jobs, flexible work hours, lunch breaks and monitor breaks are the some of reasons to increase research attention. The motivations of the shift design and the break scheduling problems are presented below separately in two sections.
+
+\subsection{Shift Design}
+
+The shift design problem arises in a variety of large organizations such as airlines, hospitals, telephone companies, police departments, etc. It involves efficient usage of personnel resources to reduce costs  as much as possible, while meeting several constraints. The professional planners can construct solution for small practical problems by hand, but for the large number of different demands and solutions, the solution space is too large for an efficient manual approach. Even though finding a solution manually is possible, it is unlikely, that the optimum solution will be found. Furthermore, finding a solution manually usually takes very long time \cite{li:2013:gaspero}. Therefore, different approaches in the literature \cite{li:2004:musliu} \cite{li:2007:gaspero} \cite{li:2013:gaspero} \cite{li:2010:abseher} have been proposed to solve this problem.
+
+\subsection{Break Scheduling}
+
+The break scheduling problem is an important phase in the general employee scheduling in several organizations that needs a high level of concentration, such as air traffic control, security checking, supervision, assembly line workers, etc. The loss of concentration in such organization can end up with a dangerous consequences. It is necessary that the workers have from time to time breaks to keep the concentration level high. 
+
+In the break scheduling problem, breaks need to be assigned to shifts over one week. The slot length is usually 5 minutes, therefore, huge number of possible assignments of breaks exist. Due to the problem's size and complexity, to calculate optimum breaks for large number of shifts is impossible. Automatic or computer aided break scheduling is usually the only way to reach high quality shift plans. Therefore, this problem has been considered by researchers in the literature \cite{li:2008:beer} \cite{li:2010:beer} \cite{li:2014:widl}.
+
+The aim of this master thesis is to investigate new solution techniques for shift design and break scheduling problems. We will introduce an integer programming approach for solving shift design and break scheduling. The integer programming formulation for shift design and break scheduling problem is expected to find optimal solutions for many instances or at least to improve the existing results.
+
+
+\section{Aim of The Work}
+
+The aim of our thesis consists of four main parts:
+
+\begin{itemize}
+
+\item The integer programming formulation will be proposed for shift design and break scheduling problems. We plan to study different formulations for both problems.
+
+\item To solve the models, we will apply the Cplex Solver and Gurobi Solver. We will compare experimentally the two solvers on benchmark instances for shift design problem from the literature.
+
+\item For experimentations, different parameters in Cplex Solver will be used. These parameters speed up the process, meanwhile change the optimality tolerance.
+
+\item To measure the performance of an integer programming approach, the results will be compared with the existing state-of-the-art's results in the literature. 
+\end{itemize}
+
+\section{Results of the Master's Thesis}
+
+We obtained the results of this master thesis are given as follows,
+
+\begin{itemize}
+
+\item We propose an integer linear formulation for shift design and break scheduling problems. For break scheduling, due to the large number of constraints and variables, we restricted the problem definition.
+
+\item Cplex Solver obtains the results in less time compared to Gurobi Solver for datasets of the shift design problem.
+
+\item In a few instances of shift design problem, we could not obtain results in 2 hours time limit and for these instances three different parameters of Cplex Solver are performed. By using these parameters, we can not guarantee the optimal solution is found. However, these long lasting instances by using these parameters also achieved better solutions compared to previous results. 
+
+\item We compare our algorithms with the best existing results for the both problems in literature. We obtained the best existing result in each instance (except one). However, our formulation fails to run in the real life instances of break scheduling problem, due to our restrictions in this problem.
+\end{itemize}
+
+
+\section{Structure of the Master's Thesis}
+
+The remaining parts of this thesis are organized into the following chapters: 
+
+\begin{itemize}
+\item In \textbf{Chapter 2}, we will introduce the shift design and the break scheduling problem. The formal definition of shift design and break scheduling problems, that we have solved in this thesis, are given. 
+
+\item In \textbf{Chapter 3}, we will give an overview of state-of-the-art. We will discuss the proposed integer linear programming formulations for a similar problem called shift scheduling problem and then we will give the related work for shift design and break scheduling problems. 
+
+\item In \textbf{Chapter 4}, we will present our integer linear programming formulations for both problems in details. The variables, constraints and objective functions will be described. 
+
+\item In \textbf{Chapter 5}, we will present the computational results obtained by our integer linear programming formulations for shift design and break scheduling problems. We will compare the two integer linear programming solvers, Cplex Solver and Gurobi Solver for the datasets of shift design problem. We will experiment different parameters in Cplex Solver for long lasting instances of shift design problem. At last, we will compare our results with the best known result in the state-of-the-art for both problems.
+
+\item In \textbf{Chapter 6}, we conclude this thesis by summarizing the work presented and give ideas for potential future work.
+
+\end{itemize}

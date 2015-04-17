@@ -1,0 +1,12 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: relatedwork.aux
+The style file: plain.bst
+Database file #1: relatedwork.bib
+Name 2 in "G\"artner, J. and Musliu, N, and Slany, W," has a comma at the end for entry li:2001:gärtner
+while executing---line 1049 of file plain.bst
+Name 3 in "G\"artner, J. and Musliu, N, and Slany, W," has a comma at the end for entry li:2001:gärtner
+while executing---line 1049 of file plain.bst
+Name 2 in "G\"artner, J. and Musliu, N, and Slany, W," has a comma at the end for entry li:2001:gärtner
+while executing---line 1090 of file plain.bst
+Name 3 in "G\"artner, J. and Musliu, N, and Slany, W," has a comma at the end for entry li:2001:gärtner
+while executing---line 1090 of file plain.bst
+(There were 4 error messages)

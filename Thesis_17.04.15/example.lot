@@ -1,0 +1,28 @@
+\select@language {naustrian}
+\select@language {naustrian}
+\select@language {english}
+\select@language {naustrian}
+\select@language {english}
+\addvspace {10pt}
+\select@language {naustrian}
+\select@language {english}
+\select@language {naustrian}
+\select@language {english}
+\addvspace {10pt}
+\addvspace {10pt}
+\contentsline {table}{\numberline {2.1}{\ignorespaces An example of shift types}}{6}{table.2.1}
+\addvspace {10pt}
+\addvspace {10pt}
+\contentsline {table}{\numberline {4.1}{\ignorespaces An example of shift types}}{18}{table.4.1}
+\addvspace {10pt}
+\contentsline {table}{\numberline {5.1}{\ignorespaces Times (in seconds) to reach the best known solution using Cplex and Gurobi Solver and best solution in the state-of-the-art for Data Set 1}}{44}{table.5.1}
+\contentsline {table}{\numberline {5.2}{\ignorespaces Times (in seconds) to reach the best known solution using Cplex and Gurobi Solver for Data Set 2}}{45}{table.5.2}
+\contentsline {table}{\numberline {5.3}{\ignorespaces Times (in seconds) to reach the best known solution using Cplex Solver for Data Set 3}}{46}{table.5.3}
+\contentsline {table}{\numberline {5.4}{\ignorespaces Times (in seconds) to reach the best known solution using Gurobi Solver for Data Set 3}}{47}{table.5.4}
+\contentsline {table}{\numberline {5.5}{\ignorespaces Times (in seconds) to reach the best known solution using Cplex Solver for Data Set 4 and 5. instance of Data Set 3}}{47}{table.5.5}
+\contentsline {table}{\numberline {5.6}{\ignorespaces Times (in seconds) to reach the best known solution using Gurobi Solver for Data Set 4 and 5. instance of Data Set 3}}{48}{table.5.6}
+\contentsline {table}{\numberline {5.7}{\ignorespaces Times (in seconds) and Results using different parameters in Cplex Solver for Data Set 4 and 5. instance of Data Set 3}}{50}{table.5.7}
+\contentsline {table}{\numberline {5.8}{\ignorespaces Comparison of Solution Costs for Data Set 3}}{52}{table.5.8}
+\contentsline {table}{\numberline {5.9}{\ignorespaces The result of break scheduling problem with randomly generated instance}}{54}{table.5.9}
+\contentsline {table}{\numberline {5.10}{\ignorespaces The comparison with literature of break scheduling problem with randomly generated instance}}{54}{table.5.10}
+\addvspace {10pt}

@@ -1,0 +1,59 @@
+%% intro.tex
+%% Copyright (C) 2014 by Thomas Auzinger <thomas.auzinger@cg.tuwien.ac.at>
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status `maintained'.
+%
+% The Current Maintainer of this work is Thomas Auzinger.
+%
+% This work consists of the files vutinfth.dtx and vutinfth.ins
+% and the derived file vutinfth.cls.
+% This work also consists of the file intro.tex.
+
+
+\newacronym{ctan}{CTAN}{Comprehensive TeX Archive Network}
+\newacronym{faq}{FAQ}{Frequently Asked Questions}
+\newacronym{pdf}{PDF}{Portable Document Format}
+\newacronym{svn}{SVN}{Subversion}
+\newacronym{wysiwyg}{WYSIWYG}{What You See Is What You Get}
+
+\newglossaryentry{texteditor}
+{
+  name={editor},
+  description={A text editor is a type of program used for editing plain text files.}
+}
+
+\section{Summary}
+
+In this thesis, we developed integer linear programming formulation for solving shift design and break scheduling problems, that belong to class of NP-hard problems. These problems are variants of shift scheduling problem and are introduced recently in the literature. The shift scheduling problem today is very different from the one introduced by Dantzig \cite{li:1954:dantzig} and Edie \cite{li:1954:edie}. The relative importance of needed employees in scheduling decision has grown due to the economic considerations. Part time jobs, flexible work hours, lunch breaks and monitor breaks are the some of reasons to increase research attention.
+
+For the first problem shift design, we proposed integer linear programming model explicitly. This explicit model is generated based on enumeration of each shift from the possible shift starts and  lengths. There are different proposed integer programming formulation for shift scheduling problem. Shift design problem is variety of shift scheduling problem. Shift design problem has several criteria, that needs to be considered.The shifts are generated over multiple days, usually a week and has a cyclic structure. In order to minimize the number of shifts in shift design problem, we need to consider reusing shifts on all days of the week. In addition to minimizing the number of shifts, the objective function consists of sum of the shortages and excesses of workers in each time slot.
+
+We solve our integer linear programming for shift design problem with Cplex and Gurobi Solvers, to compare both solvers each other. We reach optimal solution with less time using Cplex Solver. Therefore, we continue our further investigations with Cplex. We have used 4 different randomly generated instance set, including one real life instance. We obtained the optimal solution for most of the instances, however, we needed to terminate a few of instances, due to the exceeding of time limit (2 hours). To speed up these instances, that timed out, we have used three different parameters of Cplex Solver. We obtained better objective function values compared to the best known results in state-of-the-art. However, these changes with parameters does not guarantee the optimality 
+of these instances. All generated instances except one (27. instance in dataset 2), we have found the best known result in the literature.  
+
+The second problem, that we investigated integer linear programming formualtion is break scheduling. Due to the constraints based on work period between breaks, we proposed also explicit model. However, to enumerate all possible breaks ends up with large amount of variables and constraints. For this reason, we formulated break scheduling problem with considering some restrictions. These new hard constraints are, assuming each breaks have 10 minutes length and there exist three breaks before the lunch. In addition to these constraints, we initialize variables, that satisfies the first five constraints. We consider as objective function the remaining two soft constraints, sum of excesses and shortages of employees in each time slot.
+
+We used only Cplex Solver to solve break scheduling problem. For this problem, there are some real life and two data set randomly generated instances. The real life instances consist of assigned shifts with different shift lengths and for the instances with shift lengths more than 12 hours cause too many after lunch breaks with supposing 3 breaks before lunch. Therefore, we could not obtain solutions for real life instances, due to negative time window, considering the minimum working period between breaks. However, we have obtained the best known solutions for randomly generated instances, with the same time limit as previous results in the state-of-the-art. Only in one instance, Widl et al. obtained better best result, but still the average of their 10 runs are more than our objective function value.
+
+\section{Future Work}
+
+We obtained the best known results in the state-of-the-art for both shift design and break scheduling problem. However, we can reconsider and add some extensions and improvements to our formulations as future work:
+
+\begin{itemize}
+
+
+\item In the real life instances of break scheduling problem we could not obtain any solutions. Our integer programming formulation is not convenient for these instances. Because, we formulated this problem with some restrictions and one of them is supposing each shift have 3 breaks before the lunch and this assumption ends up with too many breaks after the lunch break for the 12 hours or longer shifts. As a future work, we need to reconsider these assumptions and could be beneficial to remove the restrictions for break scheduling problem.
+
+\item We proposed integer linear programming formulation for both problems separately as two different problems. To solve break scheduling problem, we need to have assigned shifts as an input variable. To schedule these shifts, we need to consider each break. For this reason, as a future work, to investigate a formulation to solve both problems simultanuously can be very helpful to find more feasible schedules in the subject of assigning shifts and breaks for the employees. 
+
+\item As mentioned by Di Gaspero et al. in \cite{li:2013:gaspero}, we can extend the problem with adding the new considerations like employee qualification and task assignment simultaneously. These new improvements would be useful in a scheduling system that can help professional planners and can be considered for future work.
+
+\end{itemize}

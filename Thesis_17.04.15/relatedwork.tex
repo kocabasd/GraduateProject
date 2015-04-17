@@ -1,0 +1,111 @@
+%% intro.tex
+%% Copyright (C) 2014 by Thomas Auzinger <thomas.auzinger@cg.tuwien.ac.at>
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status `maintained'.
+%
+% The Current Maintainer of this work is Thomas Auzinger.
+%
+% This work consists of the files vutinfth.dtx and vutinfth.ins
+% and the derived file vutinfth.cls.
+% This work also consists of the file intro.tex.
+
+
+\newacronym{ctan}{CTAN}{Comprehensive TeX Archive Network}
+\newacronym{faq}{FAQ}{Frequently Asked Questions}
+\newacronym{pdf}{PDF}{Portable Document Format}
+\newacronym{svn}{SVN}{Subversion}
+\newacronym{wysiwyg}{WYSIWYG}{What You See Is What You Get}
+
+\newglossaryentry{texteditor}
+{
+  name={editor},
+  description={A text editor is a type of program used for editing plain text files.}
+}
+
+
+In this section, we will give an overview of state of the art in the area of shift design and break scheduling. The variants of problems, we solved in this thesis are introduced recently in the literature. However a similar problem called shift scheduling problem usually with a break or multiple breaks has been extensively investigated in the literature. We will first give the related work for the shift scheduling problem and then we will give the state of the art for shift design and break scheduling problems.
+
+\section{Shift Scheduling with Breaks}
+
+Different approaches have been proposed for the shift scheduling problem, especially based on integer programming formulation. The problem has been first introduced by Edie (1954) \cite{li:1954:edie} in the context of toll booth operator scheduling. Solving this shift scheduling problem was originally proposed by Dantzig  \cite{li:1954:dantzig} by the set covering formulation. 
+
+The integer programming model of Dantzig is given below:
+
+\begin{equation}
+\min \sum_{j=1}^n c_j * x_j
+\end{equation}
+subject to:
+
+\begin{equation}
+\sum_{j=1}^n a_{tj} x_j \ge b_t \quad \forall t = 1, 2, ...m
+\end{equation}
+\begin{equation}
+x_{j} \ge 0, \quad x \in \mathbb{Z} \quad \forall j = 1, 2, ...n 
+\end{equation}
+\\ where,
+
+$n$ : number of possible shifts.
+
+$m$ : number of time slot in the planning period.
+
+$c_{j}$ : cost of assigning an employee to shift $j$.
+
+$x_{j}$ : number of workers assigned to shift $j$.
+
+$a_{tj}$ : is 1, if time slot $t$ is a work period for shift $j$, 0 otherwise.
+
+$b_t$ : needed number of employees in time slot $t$. \\
+
+The solution of this formulation can be found by enumerating the feasible shifts based on possible shift starts, shift durations, breaks, and time windows for breaks. However, involving a high flexibility with including different shift start times, lengths, multiple breaks, multiple break types cause increasing the number of enumerated shifts. For this reason, to solve with the explicit set covering formulation can be very difficult.
+
+Researchers have proposed different formulations to overcome this difficulty. Moondra \cite{li:1976:moondra} proposed an approach of implicitly representing shifts. The considered model has two types of shifts; full-time and part-time:
+
+\begin{itemize}
+\item Full-time shifts: Fixed length and a lunch break window allowing two break starting times. To assign the break placements, half of the employees take their lunch in the first period and the remaining half of workers in the second break period.
+\item Part-time shifts: with a length variable (4-8 hours) and no lunch break. The  length of the part-time shift was represented implicitly. 
+\end{itemize}
+
+Bechtold and Jacobs \cite{li:1990:bechtold} introduced a new integer formulation, that break assignments were modeled implicitly rather than explicitly. The formulation considers a single break with the same duration in each shift. Although the extended formulation was shown to be superior compared to the set covering model, approach is restricted to the less than 24 hours planning period. Thompson \cite{li:1995:thompson} combined these two formulation works of Moondra \cite{li:1976:moondra} and Bechtold and Jacobs \cite{li:1990:bechtold} to achieve a fully implicit formulation of the shift scheduling problem. This formulation reduces the size and improve the scheduling flexibility.
+
+Aykin \cite{li:1996:aykin} proposed an implicit integer programming model with LINDO for the shift scheduling problem with break placement. The problem is extended that employees have multiple rest breaks and a lunch break. The length of a lunch break is usually 30 to 60 minutes and a rest break is 15 to 30 minutes. The proposed formulation has also time window for lunch and rest breaks. For instance, Aykin assumed that time window of a break starts half an hour before the ideal break location and take 90 minutes. Therefore, 6 possible different time slots to assign 15 minute break and 5 different ways for a 30 minute break. It reduces the number of variables needed. The approach is not only feasible for less than 24 hours planning period, but also suitable for 24 hours continuous (cyclical problem) planning period. 
+
+Aykin \cite{li:2000:aykin} extended Bechtold and Jacobs's formulation \cite{li:1990:bechtold} a generalized version by relaxing the assumptions of it and compared with the model that he presented in  \cite{li:1996:aykin}. Although generalized version of Bechtold and Jacobs's approach has fewer variables, it has more constaints and more non- zero in A-matrix. Its end up with a worse performance than the model of Aykin.
+
+To overcome the difficulties by explicit set covering formulation, implicit models have been used to solve shift scheduling problems efficiently. However, implicit models use more complex formulations to assign feasible shifts. These approaches have some problems in solving large size problems. This difficulties lead researchers to propose approaches either using branch and price \cite{li:2000:mehrotra}  or using branch and cut approach \cite{li:1998:aykin}. Aykin \cite{li:1998:aykin} proposed branch and cut algorithm based on an implicit formulation for the shift design problem. Rounding heuristic is used to add cuts and updated iteratively. Mehrotra et al. \cite{li:2000:mehrotra} developed a branch and price approach. Their formulations obtained good results for the large shift scheduling problems, optimal solutions or best non-optimal solutions were found.  
+
+Rekik et al. \cite{li:2010:rekik} proposed an implicit formulation of the shift scheduling with multiple breaks. To increase flexibility, fractionable breaks and work stretch duration restriction are used. Each break is appropriately assigned by minimum and maximum pre- and post-break work stretch duration constraints. Breaks can  be divided into fractional breaks and this sub breaks can have different lengths, depends on minimum, maximum sub break lengths and the sum of the lengths of sub break is equal to the total break duration of the shift.
+
+
+\section{Shift Design}
+
+The concept of shift design has been first introduced in \cite{li:2001:gärtner} \cite{li:2004:musliu} \cite{li:2001:musliu}. There are several differences, that characterize the shift design problem. The shifts are generated over multiple days, usually a week, rather than a day. The shift design problem has a cyclic structure, therefore the last time slot of the week is connected to the first time slot of a week. In order to minimize the number of shifts in shift design problem, we need to consider reusing shifts on all days of the week. Furthermore, the objective function of shift scheduling is to minimize the number of workers, without any shortages of employees. 
+
+In these first publications; Musliu et al. proposed a local search approach with a set of move types to explore the neighbourhood. In order to avoid cycles in the move selection process, tabu search mechanism is used. To make the search more effective, the neighbourhood exploration mechanism is based on analyzing the distance of the current solution to the optimal solution with respect to the shortages or excesses of workers with the longest duration and the used shift types. The initial solution of the algorithm is based on to consider every change of the requirements. These differences of consecutive time slot can be beginning (increase of requirement) or ending (decrease of requirement) point of a shift. 
+
+Di Gaspero et al. \cite{li:2007:gaspero} improved this method and composed a greedy construction heuristic with the local search algorithm. The initial solution is constructed using new greedy heuristic based on min-cost max-flow. Shifts are edges and workforces are the edge flows. In the second stage, the local search paradigm is used to explore the neighbourhood. The hybrid solver outperforms the previous approach. Abseher \cite{li:2010:abseher} proposed different modelling approaches using answer set programming, but the performance could not be improved obtained by solving the shift design problem using the heuristic-based approaches in \cite{li:2007:gaspero}.
+
+\section{Break Scheduling}
+
+Beer et al. \cite{li:2008:beer} introduced the break scheduling problem, that presented in the previous chapter and developed local search techniques based on min-conflicts algorithm. Although min-conflict search tries to improve the solution incrementally by concentrating on violating constraints, is not being able to escape from local optima. Random walk strategy is adapted to explore further regions with a probability p and the remaining 1-p probability is used for min-conflict search. Tabu search mechanism and simulated annealing algorithm \cite{li:2010:beer} are implemented and the performances compared with min-conflicts-random-walk search. The min-conflicts-random-walk approach outperformed the other two heuristic techniques.
+
+Widl  \cite{li:2009:widl} introduced a memetic algorithm for break scheduling problem. Initial solutions were constructed randomly or by fast heuristic. Break patterns created and remained unviolated the constraints $C_1$ -$ C_5$   during each iteration. Every individual tries to find the best solutions with using a local search algorithm. This approach improved the previous results based on min-conflicts-random-walk for the break scheduling problem. 
+
+Widl  \cite{li:2014:widl} \cite{li:2010:widl} \cite{li:2010:widlimp} proposed 2 new memetic algorithms. These approaches are used a new memetic representation based on time periods instead of on each shift, therefore these algorithms require different genetic operators. In the first algorithm, tabu search is used to prevent re-visiting old computed solutions in local search. To improve the first algorithm, crossover operator is developed in the second algorithm, that every offspring can have more than one parent and each individual can be parent also. With each iteration, the first offspring is created by joining the best memes of the current memepool and the remaining are created by applying a k-tournament. Bad individuals are less likely to be discarded. To calculate the best memes and to discard some individuals, penalty system was developed. As a result, applying local search for some instances instead of all of them provided a better result. The approach obtain the best results for the break scheduling problem.
+
+\section{Shift Design and Break Scheduling}
+
+Real life shift design and break scheduling problem arise in different areas of industry. Generally in the literature, the break scheduling has been addressed mainly as part of the shift scheduling problem. Such an example, which have multiple rest breaks and a lunch break, we presented before, is proposed by Aykin \cite{li:1996:aykin}. 
+
+G\"artner et al. \cite{li:2005:gaertner} extended shift design problem first time with breaks. The break scheduling definition is described differently as we presented in Chapter 2 before. There are fewer soft constraints, which are minimal and maximal length of break, minimal and maximal distance of start of break from the shift begin, and minimal distance of end of break from the end of the shift. One or more breaks can be assigned to every shifts. The shifts are generated first based on local search, that we presented above (\cite{li:2001:gärtner} \cite{li:2004:musliu}). The solution found by local search converted to shifts with one employee per day and greedy algorithm was used to assign breaks. The greedy algorithm finds the best position of the breaks depend on under- and over-covers. Next step is to update the length of breaks or shifts to increase or decrease to improve solution. Last step creates the solution with shifts and multiple employees. The algorithm found an average solution. 
+
+G\"artner et al. \cite{li:2006:gaertner} improved this algorithm by using integer programming formulation based on the set covering model of Dantzig  \cite{li:1954:dantzig} for shift design phase, rather than local search. The shift design problem was defined with an extra component compared to the shift design problem presented in this master thesis, that is the sum of the deviations of the shift lengths from the optimal shift length. Same steps were used for assigning breaks with the previous article \cite{li:2005:gaertner}. The method gave good results in practice. 
+
+Di Gaspero et al. \cite{li:2010:gaspero} \cite{li:2013:gaspero} proposed an innovative hybrid method that combines features of local search and constraint programming  techniques. The problem is divided into two sub problems, where the local search technique is used to determine the shifts in the first phase and the constraint programming model to assign breaks. This approach could not improve the results obtained by solving the break scheduling problem separately after generating shifts. 

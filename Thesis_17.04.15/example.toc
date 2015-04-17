@@ -1,0 +1,65 @@
+\select@language {naustrian}
+\select@language {naustrian}
+\select@language {english}
+\select@language {naustrian}
+\select@language {english}
+\contentsline {chapter}{Abstract}{vii}{chapter*.2}
+\select@language {naustrian}
+\select@language {english}
+\select@language {naustrian}
+\select@language {english}
+\contentsline {chapter}{Contents}{xi}{section*.4}
+\contentsline {chapter}{List of Figures}{xii}{section*.5}
+\contentsline {chapter}{List of Tables}{xii}{section*.6}
+\contentsline {chapter}{List of Algorithms}{xv}{chapter*.7}
+\contentsline {chapter}{\chapternumberline {1}Introduction}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}Shift Design}{1}{subsection.1.1.1}
+\contentsline {subsection}{\numberline {1.1.2}Break Scheduling}{2}{subsection.1.1.2}
+\contentsline {section}{\numberline {1.2}Aim of The Work}{2}{section.1.2}
+\contentsline {section}{\numberline {1.3}Results of the Master's Thesis}{2}{section.1.3}
+\contentsline {section}{\numberline {1.4}Structure of the Master's Thesis}{3}{section.1.4}
+\contentsline {chapter}{\chapternumberline {2}Problem Statements}{5}{chapter.2}
+\contentsline {section}{\numberline {2.1}Shift Design Problem}{5}{section.2.1}
+\contentsline {section}{\numberline {2.2}Break Scheduling Problem}{6}{section.2.2}
+\contentsline {chapter}{\chapternumberline {3}Related Work}{11}{chapter.3}
+\contentsline {section}{\numberline {3.1}Shift Scheduling with Breaks}{11}{section.3.1}
+\contentsline {section}{\numberline {3.2}Shift Design}{13}{section.3.2}
+\contentsline {section}{\numberline {3.3}Break Scheduling}{14}{section.3.3}
+\contentsline {section}{\numberline {3.4}Shift Design and Break Scheduling}{14}{section.3.4}
+\contentsline {chapter}{\chapternumberline {4}Formulations}{17}{chapter.4}
+\contentsline {section}{\numberline {4.1}Integer Linear Programming Model for Shift Design Problem}{17}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Variables}{17}{subsection.4.1.1}
+\contentsline {subsubsection}{Input Variables}{17}{section*.8}
+\contentsline {subsubsection}{Decision Variables}{19}{section*.9}
+\contentsline {subsection}{\numberline {4.1.2}Constraints}{20}{subsection.4.1.2}
+\contentsline {subsubsection}{Excesses and Shortages of Workers in each Time Slot ($F_0 , F_1 $)}{20}{section*.10}
+\contentsline {subsubsection}{Number of Shifts ($F_2 $)}{22}{section*.11}
+\contentsline {subsection}{\numberline {4.1.3}Objective function}{23}{subsection.4.1.3}
+\contentsline {section}{\numberline {4.2}Integer Linear Programming Model for Break Scheduling Problem}{24}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Variables}{24}{subsection.4.2.1}
+\contentsline {subsubsection}{Input Variables}{25}{section*.12}
+\contentsline {subsubsection}{Decision Variables}{29}{section*.13}
+\contentsline {subsubsection}{Initialization of Breaks}{29}{section*.14}
+\contentsline {subsection}{\numberline {4.2.2}Constraints}{35}{subsection.4.2.2}
+\contentsline {subsubsection}{Hard Constraints}{35}{section*.15}
+\contentsline {subsubsection}{Soft Constraints}{37}{section*.16}
+\contentsline {subsection}{\numberline {4.2.3}Objective function}{38}{subsection.4.2.3}
+\contentsline {chapter}{\chapternumberline {5}Computational Experiments}{41}{chapter.5}
+\contentsline {section}{\numberline {5.1}Shift Design}{41}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Description of the Instances}{41}{subsection.5.1.1}
+\contentsline {subsubsection}{Data Set 1}{42}{section*.17}
+\contentsline {subsubsection}{Data Set 2}{42}{section*.18}
+\contentsline {subsubsection}{Data Set 3}{42}{section*.19}
+\contentsline {subsubsection}{Data Set 4}{42}{section*.20}
+\contentsline {subsection}{\numberline {5.1.2}Computational Results }{43}{subsection.5.1.2}
+\contentsline {subsection}{\numberline {5.1.3}Computational Results with some Limitation in Cplex Parameters }{48}{subsection.5.1.3}
+\contentsline {subsection}{\numberline {5.1.4}Comparison with Existing Results}{49}{subsection.5.1.4}
+\contentsline {section}{\numberline {5.2}Break Scheduling}{52}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Description of the Instances}{52}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Computational Results }{53}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}Comparison with Existing Results}{54}{subsection.5.2.3}
+\contentsline {chapter}{\chapternumberline {6}Conclusion and FutureWork}{57}{chapter.6}
+\contentsline {section}{\numberline {6.1}Summary}{57}{section.6.1}
+\contentsline {section}{\numberline {6.2}Future Work}{58}{section.6.2}
+\contentsline {chapter}{Bibliography}{61}{section*.22}

@@ -1,0 +1,43 @@
+%% intro.tex
+%% Copyright (C) 2014 by Thomas Auzinger <thomas.auzinger@cg.tuwien.ac.at>
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status `maintained'.
+%
+% The Current Maintainer of this work is Thomas Auzinger.
+%
+% This work consists of the files vutinfth.dtx and vutinfth.ins
+% and the derived file vutinfth.cls.
+% This work also consists of the file intro.tex.
+
+
+\newacronym{ctan}{CTAN}{Comprehensive TeX Archive Network}
+\newacronym{faq}{FAQ}{Frequently Asked Questions}
+\newacronym{pdf}{PDF}{Portable Document Format}
+\newacronym{svn}{SVN}{Subversion}
+\newacronym{wysiwyg}{WYSIWYG}{What You See Is What You Get}
+
+\newglossaryentry{texteditor}
+{
+  name={editor},
+  description={A text editor is a type of program used for editing plain text files.}
+}
+
+
+Shift design and break scheduling problems that belong to class of NP-hard problems are variants of shift scheduling problem and are introduced recently in the literature. The shift scheduling problem today is very different from the one introduced by Dantzig \cite{li:1954:dantzig} and Edie \cite{li:1954:edie}. The relative importance of needed employees in scheduling decision has grown due to the economic considerations. Part time jobs, flexible work hours, lunch breaks and monitor breaks are the some of reasons to increase research attention.  
+
+The shift design problem arises in a variety of large organizations. It involves efficient usage of personnel resources to reduce costs  as much as possible, while satisfying several constraints. Break scheduling problem is an important phase in the general employee scheduling in several organizations that needs a high level of concentration. The loss of concentration can end up with a dangerous consequences. It is important that the workers have from time to time breaks to keep the concentration level high. 
+
+The purpose of the shift design problem is to find a minimum number of legal shifts, that reduce the shortages and excesses of workers in every time slots during the planning period. And in second part we assign the breaks within their shifts conveniently respect to several constraints and also keep the deviation of workforce for the timeslots as minimal as possible. We introduced integer linear programming formulation explicitly for solving shift design and break scheduling problems. The explicit model is investigated based on enumeration of each shift or break from the possible shift or breaks starts and  lengths. For break scheduling, due to the large number of constraints and variables, we restricted the problem definition. 
+
+The simplex algorithm and branch and bound search are performed by the Cplex and Gurobi Solver, to solve the integer programming model for the data sets of shift design problem. The Cplex Solver shows faster performance compared to Gurobi Solver. Therefore, we continue our experiments using only Cplex Solver. We tried different parameters in Cplex Solver, with the instances exceed 2 hours time limit for the shift design problem. These parameters speed up the process, meanwhile change the optimality tolerance. 
+
+Exact method shows also superior performance for break scheduling problem with using Cplex Solver. However, our formulation fails to run in the real life instances of break scheduling problem, due to our restrictions in this problem. We improved the previous solutions and obtained the best known results in the state-of-the-art for both shift design and break scheduling problem. 
+

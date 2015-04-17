@@ -1,0 +1,153 @@
+\newcommand{\etalchar}[1]{$^{#1}$}
+\begin{thebibliography}{DGGM{\etalchar{+}}13}
+
+\bibitem[Abs13]{li:2010:abseher}
+M.~Abseher.
+\newblock Solving shift design problems with answer set programming.
+\newblock {\em Master's thesis, Vienna University of Technology, Vienna,
+  Austria}, 2013.
+
+\bibitem[Ayk96]{li:1996:aykin}
+T.~Aykin.
+\newblock Optimal shift scheduling with multiple break windows.
+\newblock {\em Management Science, 42(4)}, pages 591 -- 602, 1996.
+
+\bibitem[Ayk98]{li:1998:aykin}
+T.~Aykin.
+\newblock A composite branch and cut algorithm for optimal shift scheduling
+  with multiple breaks and break windows.
+\newblock {\em Journal of the Operational Research Society, 49(6)}, pages 603
+  -- 615, 1998.
+
+\bibitem[Ayk00]{li:2000:aykin}
+T.~Aykin.
+\newblock A comparative evaluation of modelling approaches to the labour shift
+  scheduling problem.
+\newblock {\em European Journal of Operational Research, 125 (2)}, pages 381 --
+  397, 2000.
+
+\bibitem[BGM{\etalchar{+}}08]{li:2008:beer}
+A.~Beer, J.~G\"artner, N.~Musliu, W.~Schafhauser, and W.~Slany.
+\newblock Scheduling breaks in shift plans for call centers.
+\newblock {\em In Proceedings of The 7th International Conference on the
+  Practice and Theory of Automated Timetabling, Montreal, Canada}, 2008.
+
+\bibitem[BGMS10]{li:2010:beer}
+A.~Beer, J.~G\"artner, N.~Musliu, and W.~Schafhauser.
+\newblock An {AI}-based break-scheduling system for supervisory personnel.
+\newblock {\em Intelligent Systems, IEEE 25 (2)}, pages 60 -- 73, 2010.
+
+\bibitem[BJ90]{li:1990:bechtold}
+S.~E. Bechtold and L.~E. Jacobs.
+\newblock Implicit modeling of flexible break assignments in optimal shift
+  scheduling.
+\newblock {\em Manage. Sci.}, 36(11):1339--1351, November 1990.
+
+\bibitem[Dan54]{li:1954:dantzig}
+G.~B. Dantzig.
+\newblock A comment on {E}ddie’s traffic delays at toll booths.
+\newblock {\em Operations Research, 2(3)}, pages 339 -- 341, 1954.
+
+\bibitem[DGGK{\etalchar{+}}07]{li:2007:gaspero}
+L.~Di~Gaspero, J.~G\"artner, G.~Kortsarz, N.~Musliu, A.~Schaerf, and W.~Slany.
+\newblock The minimum shift design problem.
+\newblock {\em 11th Annual European Symposium, Budapest, Hungary}, pages 593 --
+  604, 2007.
+
+\bibitem[DGGM{\etalchar{+}}10]{li:2010:gaspero}
+L.~Di~Gaspero, J.~G\"artner, N.~Musliu, A.~Schaerf, W.~Schafhauser, and
+  W.~Slany.
+\newblock A hybrid {LS}-{CP} solver for the shifts and breaks design problem.
+\newblock {\em In Hybrid Metaheuristics, volume 6373 of Lecture Notes in
+  Computer Science}, pages 46 -- 61, 2010.
+
+\bibitem[DGGM{\etalchar{+}}13]{li:2013:gaspero}
+L.~Di~Gaspero, J.~G\"artner, N.~Musliu, A.~Schaerf, W.~Schafhauser, and
+  W.~Slany.
+\newblock Automated shift design and break scheduling.
+\newblock {\em Automated Scheduling and Planning, volume 505 of Studies in
+  Computational Intelligence}, pages 109 -- 127, 2013.
+
+\bibitem[Edi54]{li:1954:edie}
+L.~C. Edie.
+\newblock Traffic delays at toll booths.
+\newblock {\em Journal Operations Research Society of America, 2(2)}, pages 107
+  -- 138, 1954.
+
+\bibitem[GMS01]{li:2001:gärtner}
+J.~G\"artner, N~Musliu, and W~Slany.
+\newblock Rota: a research project on algorithms for workforce scheduling and
+  shift design optimization.
+\newblock {\em AI Commun 14 (2)}, pages 83 -- 92, 2001.
+
+\bibitem[GMS05]{li:2005:gaertner}
+J.~G\"artner, N.~Musliu, and W.~Slany.
+\newblock A heuristic based system for generation of shifts with breaks.
+\newblock {\em Applications and Innovations in Intelligent Systems XII}, pages
+  95--106, 2005.
+
+\bibitem[GMS06]{li:2006:gaertner}
+J.~G\"artner, N.~Musliu, and W.~Slany.
+\newblock Comparing mathematical and local search heuristic for solving the
+  minimum shift design problem with breaks.
+\newblock 2006.
+
+\bibitem[MMT00]{li:2000:mehrotra}
+A.~Mehrotra, K.~E. Murphy, and M.~A. Trick.
+\newblock Optimal shift scheduling: A branch-and-price approach.
+\newblock {\em Naval Research Logistics (NRL), 47 (3)}, pages 185 -- 200, 2000.
+
+\bibitem[Moo76]{li:1976:moondra}
+S.~L. Moondra.
+\newblock An {L.P.} model for workforce scheduling in banks.
+\newblock {\em Journal of Bank Research, 6}, pages 299 -- 301, 1976.
+
+\bibitem[MSS04]{li:2004:musliu}
+N.~Musliu, A.~Schaerf, and W.~Slany.
+\newblock Local search for shift design.
+\newblock {\em European Journal of Operational Research, 153(1)}, pages 51 --
+  64, 2004.
+
+\bibitem[MSW09]{li:2009:widl}
+N.~Musliu, W.~Schafhauser, and M~Widl.
+\newblock A memetic algorithm for a break scheduling problem.
+\newblock {\em In: 8th Metaheuristic International Conference, Hamburg,
+  Germany}, 2009.
+
+\bibitem[Mus01]{li:2001:musliu}
+N.~Musliu.
+\newblock Intelligent search methods for workforce scheduling: New ideas and
+  practical applications.
+\newblock {\em PhD thesis, Vienna University of Technology}, 2001.
+
+\bibitem[RCS10]{li:2010:rekik}
+M.~Rekik, J.~F. Cordeau, and F.~Soumis.
+\newblock Implicit shift scheduling with multiple breaks and work stretch
+  duration restrictions.
+\newblock {\em Journal of Scheduling}, 13(1):49--75, 2010.
+
+\bibitem[Tho95]{li:1995:thompson}
+G.~M. Thompson.
+\newblock Improved implicit optimal modeling of the labor shift scheduling
+  problem.
+\newblock {\em Manage. Sci.}, 41(4):595--607, April 1995.
+
+\bibitem[Wid10]{li:2010:widl}
+M.~Widl.
+\newblock Memetic algorithms for break scheduling.
+\newblock {\em Master's thesis, Vienna University of Technology, Vienna,
+  Austria}, 2010.
+
+\bibitem[WM10]{li:2010:widlimp}
+M.~Widl and N.~Musliu.
+\newblock An improved memetic algorithm for break scheduling.
+\newblock {\em HM'10 Proceedings of the 7th international conference on Hybrid
+  metaheuristics}, pages 133 -- 147, 2010.
+
+\bibitem[WM14]{li:2014:widl}
+M.~Widl and N.~Musliu.
+\newblock The break scheduling problem: complexity results and practical
+  algorithms.
+\newblock {\em Memetic Computing, 6 (2)}, pages 97 -- 112, 2014.
+
+\end{thebibliography}

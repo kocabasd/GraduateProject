@@ -1,0 +1,91 @@
+\begin{thebibliography}{10}
+
+\bibitem{li:1996:aykin}
+T.~Aykin.
+\newblock Optimal shift scheduling with multiple break windows.
+\newblock {\em Management Science, 42(4)}, pages 591 -- 602, 1996.
+
+\bibitem{li:1998:aykin}
+T.~Aykin.
+\newblock A composite branch and cut algorithm for optimal shift scheduling
+  with multiple breaks and break windows.
+\newblock {\em Journal of the Operational Research Society, 49(6)}, pages 603
+  -- 615, 1998.
+
+\bibitem{li:2000:aykin}
+T.~Aykin.
+\newblock A comparative evaluation of modelling approaches to the labour shift
+  scheduling problem.
+\newblock {\em European Journal of Operational Research, 125 (2)}, pages 381 --
+  397, 2000.
+
+\bibitem{li:1990:bechtold}
+Stephen~E. Bechtold and Larry~E. Jacobs.
+\newblock Implicit modeling of flexible break assignments in optimal shift
+  scheduling.
+\newblock {\em Manage. Sci.}, 36(11):1339--1351, November 1990.
+
+\bibitem{li:2010:beer}
+A.~Beer, J.~G\"artner, N.~Musliu, and W.~Schafhauser.
+\newblock An {AI}-based break-scheduling system for supervisory personnel.
+\newblock {\em Intelligent Systems, IEEE 25 (2)}, pages 60 -- 73, 2010.
+
+\bibitem{li:1954:dantzig}
+G.~B. Dantzig.
+\newblock A comment on {E}ddie’s traffic delays at toll booths.
+\newblock {\em Operations Research, 2(3)}, pages 339 -- 341, 1954.
+
+\bibitem{li:2007:gaspero}
+L.~Di~Gaspero, J.~G\"artner, G.~Kortsarz, N.~Musliu, A.~Schaerf, and W.~Slany.
+\newblock The minimum shift design problem.
+\newblock {\em 11th Annual European Symposium, Budapest, Hungary}, pages 593 --
+  604, 2007.
+
+\bibitem{li:2010:gaspero}
+L.~Di~Gaspero, J.~G\"artner, N.~Musliu, A.~Schaerf, W.~Schafhauser, and
+  W.~Slany.
+\newblock A hybrid {LS}-{CP} solver for the shifts and breaks design problem.
+\newblock {\em In Hybrid Metaheuristics, volume 6373 of Lecture Notes in
+  Computer Science}, pages 46 -- 61, 2010.
+
+\bibitem{li:1954:edie}
+L.~C. Edie.
+\newblock Traffic delays at toll booths.
+\newblock {\em Journal Operations Research Society of America, 2(2)}, pages 107
+  -- 138, 1954.
+
+\bibitem{li:2001:gärtner}
+J.~G\"artner, N~Musliu, and W~Slany.
+\newblock Rota: a research project on algorithms for workforce scheduling and
+  shift design optimization.
+\newblock {\em AI Commun 14 (2)}, pages 83 -- 92, 2001.
+
+\bibitem{li:2000:mehrotra}
+A.~Mehrotra, K.~E. Murphy, and M.~A. Trick.
+\newblock Optimal shift scheduling: A branch-and-price approach.
+\newblock {\em Naval Research Logistics (NRL), 47 (3)}, pages 185 -- 200, 2000.
+
+\bibitem{li:1976:moondra}
+S.~L. Moondra.
+\newblock An l.p. model for workforce scheduling in banks.
+\newblock {\em Journal of Bank Research, 6}, pages 299 -- 301, 1976.
+
+\bibitem{li:2004:musliu}
+N.~Musliu, A.~Schaerf, and W.~Slany.
+\newblock Local search for shift design.
+\newblock {\em European Journal of Operational Research, 153(1)}, pages 51 --
+  64, 2004.
+
+\bibitem{li:1995:thompson}
+Gary~M. Thompson.
+\newblock Improved implicit optimal modeling of the labor shift scheduling
+  problem.
+\newblock {\em Manage. Sci.}, 41(4):595--607, April 1995.
+
+\bibitem{li:2014:widl}
+M.~Widl and N.~Musliu.
+\newblock The break scheduling problem: complexity results and practical
+  algorithms.
+\newblock {\em Memetic Computing, 6 (2)}, pages 97 -- 112, 2014.
+
+\end{thebibliography}

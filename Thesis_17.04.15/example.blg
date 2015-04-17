@@ -1,0 +1,19 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: example.aux
+The style file: alpha.bst
+Database file #1: references.bib
+Name 2 in "G\"artner, J. and Musliu, N, and Slany, W," has a comma at the end for entry li:2001:gärtner
+while executing---line 1185 of file alpha.bst
+Name 3 in "G\"artner, J. and Musliu, N, and Slany, W," has a comma at the end for entry li:2001:gärtner
+while executing---line 1185 of file alpha.bst
+Name 3 in "G\"artner, J. and Musliu, N, and Slany, W," has a comma at the end for entry li:2001:gärtner
+while executing---line 1185 of file alpha.bst
+Name 2 in "G\"artner, J. and Musliu, N, and Slany, W," has a comma at the end for entry li:2001:gärtner
+while executing---line 1185 of file alpha.bst
+Name 3 in "G\"artner, J. and Musliu, N, and Slany, W," has a comma at the end for entry li:2001:gärtner
+while executing---line 1185 of file alpha.bst
+Name 2 in "G\"artner, J. and Musliu, N, and Slany, W," has a comma at the end for entry li:2001:gärtner
+while executing---line 1250 of file alpha.bst
+Name 3 in "G\"artner, J. and Musliu, N, and Slany, W," has a comma at the end for entry li:2001:gärtner
+while executing---line 1250 of file alpha.bst
+Warning--empty journal in li:2006:gaertner
+(There were 7 error messages)

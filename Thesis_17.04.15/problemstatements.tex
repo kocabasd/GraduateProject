@@ -1,0 +1,217 @@
+%% intro.tex
+%% Copyright (C) 2014 by Thomas Auzinger <thomas.auzinger@cg.tuwien.ac.at>
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status `maintained'.
+%
+% The Current Maintainer of this work is Thomas Auzinger.
+%
+% This work consists of the files vutinfth.dtx and vutinfth.ins
+% and the derived file vutinfth.cls.
+% This work also consists of the file intro.tex.
+
+
+\newacronym{ctan}{CTAN}{Comprehensive TeX Archive Network}
+\newacronym{faq}{FAQ}{Frequently Asked Questions}
+\newacronym{pdf}{PDF}{Portable Document Format}
+\newacronym{svn}{SVN}{Subversion}
+\newacronym{wysiwyg}{WYSIWYG}{What You See Is What You Get}
+
+\newglossaryentry{texteditor}
+{
+  name={editor},
+  description={A text editor is a type of program used for editing plain text files.}
+}
+
+In this chapter, the formal definition of shift design and break scheduling problems, that we have solved in this thesis, are given. 
+
+
+\section{Shift Design Problem}
+Below we give the definition of the shift design problem. Our description is based on the problem definition from \cite{li:2001:gärtner} \cite{li:2004:musliu}:
+
+\begin{itemize}
+\item Planning period consists of $n$ consecutive time slot $[a_1,a_2), [a_2,a_3), . . . , [a_n,a_{n+1})$, all having the same length $slotlength$ in minutes. The needed number of workers $w_i$ for each interval $[a_i, a_{i+1})$. The shift design problem has a cyclic structure, therefore the end of the planning period $a_{n+1}$ is equal to the first time point $a_1$. The format of time points is: $day:hour:minute$
+
+\item The shifts can be generated depending on $y$ shift types $v_1,...,v_y$. Each shift type has a minimum/maximum start and  minimum/maximum length. 
+\begin{itemize}
+\item[] $v_j.minStart :$  Earliest start of the shift types $j$. 
+\item[] $v_j.maxStart :$ Latest start of the shift types $j$. 
+\item[] $v_j.minLength :$  Shortest duration of the shift types $j$. 
+\item[] $v_j.maxLength :$  Longest duration of the shift types $j$. 
+\end{itemize}
+
+In Table~\ref{tab:shifttypes} an example of four shift types is given.
+
+\item In original definition of shift design problem, there are also two scalar real-valued quantities, used to define the distance from the average number of duties. 
+
+\begin{itemize}
+\item[] AS : The upper limit for the average number of working shifts per week per employee.
+\item[] AH : Average number of working hours per week per employee.
+\end{itemize}
+
+These two parameters are not used in our integer programming formulation.
+
+\end{itemize}
+
+\begin{table}
+  \centering
+  \begin{tabular}{ccccc}
+    \toprule
+    Shift type & MinStart         & MaxStart      & MinLength & MaxLength        \\
+    \midrule
+    M     & 05:00	 & 08:00          & 07:00 	& 09:00        \\
+    D     & 09:00	 & 11:00          & 07:00	& 09:00        \\
+    A     & 14:00	 & 16:00          & 07:00	& 09:00        \\
+    N     & 21:00	 & 23:00          & 07:00	& 09:00        \\
+    \bottomrule
+  \end{tabular}
+  \caption{An example of shift types}
+  \label{tab:shifttypes} 
+\end{table}
+
+The purpose of the shift design problem is to generate $k$ shifts $s_1, s_2,...s_k$, which belongs to one of the shift types. Every shift has a start point $v_j.start$ and length $v_j.length$ parameters.  Additionally, each real shift $s_p$ has adjoined parameters $s_p.w_i, \forall i \in \{1,...,C\}$ (C represents the number of days in the planning period and usually considered a week) representing the number of workers in shift $s_p$ during the day $i$. The aim is to minimize the four components given below:
+
+$F_1$ : Sum of the excesses of workers in each time slot during the planning period
+
+$F_2$ : Sum of the shortages of workers in each time slot during the planning period
+
+$F_3$ : Number of shifts
+
+$F_4$ : Distance of the average number of duties per week in case it is above a certain threshold. This component is meant to avoid an excessive fragmentation of workers load in too many short shifts.
+
+This is a multi criteria optimization problem. Unlike the four weighted components in the original definition, we have used the first three like in the article \cite{li:2007:gaspero}. These remaining three components have different importance depending on the situation. 
+
+As we mentioned above, we avoided some of the instances, that are necessary to calculate the distance of the average number of duties per week per employee. To disregard this fourth component of the objective function is reducing the complexity of the problem statement. This criterion is also excluded in \cite{li:2007:gaspero}.
+
+The formal representation of the shift design problem is given in detail in the article \cite{li:2001:gärtner} \cite{li:2004:musliu}.
+
+\section{Break Scheduling Problem}
+
+Below we give the definition of break scheduling problem. Our description is based on the problem definition from \cite{li:2010:beer}:
+
+\begin{itemize}
+
+\item Planning period divided into $n$ consecutive time slot $[a_1,a_2), [a_2,a_3), . . . , [a_n,a_{n+1})$, all with the same length $slotlength$ usually 5 minutes. The break scheduling problem has also cyclic structure, therefore the last time slot $t_{n+1}$ is equal to the first time slot $t_1$.
+
+\item There are $k$ shifts $(s_1, s_2, ..., s_k)$, indicating the work schedule of employees. The break time per shift $s_i$ is calculated based on the shift length. If shift length is less or equal to 10 hours, break time is,
+
+\begin{equation}
+s_i.breakTime = floor( ( minutes(Shift Length) - 20) / 50 ) * 10
+\end{equation}
+
+otherwise,
+\begin{equation}
+s_i.breakTime = ceil (   minutes(Shift Length) / 4 )
+\end{equation}
+
+\item The employee requirements for each time slot, $[a_1,a_2), [a_2,a_3), . . . , [a_n,a_{n+1})$ in the planning period are defined as follows,
+
+\begin{itemize}
+\item $w_t$ is the needed number of workers  for the time slot $t$.
+\item A staff is considered to be working for the time slot $t$, if the time slot $t$ is in the employees working schedule and the employees are not in the break period in time slot $t$.
+\item An employee needs a full time slot (typically 5 minutes) to return back to work after a break. Thus, the first time slot after the break, the staff is not considered to be working.
+\end{itemize}
+
+\item Shifts and breaks have two parameters, that are the beginning or ending time points of shifts or breaks. The duration value can be calculated by substracting the time slots of the $start$ and $end$ of shifts or breaks. Moreover, each break is associated with a certain shift in which it is scheduled. We distinguish between two different types of breaks, that are monitor or lunch breaks.
+
+\end{itemize}
+
+Given a planning period, a set of shifts, the associated total break times, and the staffing requirements, there are several hard and soft constraints, that need to be considered for the break scheduling problem. The hard constraints are:
+\begin{itemize}
+\item Each break lies entirely within its associated shift.
+
+\begin{equation}
+s_i.start \le b_j.start \le b_j.end \le s_i.end
+\end{equation}
+
+\item Two distinct breaks associated with the same shift, do not overlap in time. 
+
+\begin{equation}
+ b_j.start \le b_j.end \le  b_k.start \le b_k.end 
+\end{equation}
+
+or
+
+\begin{equation}
+ b_k.start \le b_k.end \le  b_j.start \le b_j.end 
+\end{equation}
+
+\item Sum of break durations needs to be equal to shift's break time. 
+
+\begin{equation}
+\sum_{b_j \in s_i} b_j.duration = s_i.breakTime
+\end{equation}
+
+
+\end{itemize}
+
+Among, all feasible solutions for the break scheduling problem, there are seven soft constraints. These constraints are useful to assign the breaks within their shifts conveniently and to reduce the excesses and shortages of workforce for the time slots. These seven criteria are explained below, \\
+
+$C_1$: Break Positions. Each break, $b_j$, may start, at the earliest, a certain number of time slots after the beginning of its associated shift $s_i$, and may end, at the latest, a given number of time slots before the end of its shift:
+
+\begin{equation}
+b_j.start \ge s_i.start + distanceToShiftStart
+\end{equation}
+
+\begin{equation}
+b_j.end \le s_i.end + distanceToShiftEnd
+\end{equation}
+
+
+$C_2$: Lunch Breaks. A shift $s_i$ can have several lunch breaks, each required to last a specified number of time slots (min lunch break duration), and should be located within a certain time window after the shift start. Let $b_{lb}$ be a lunch break. Then,
+
+\begin{equation}
+b_{lb}.start \ge s_i.start + distanceToShiftStartLB
+\end{equation}
+
+\begin{equation}
+b_{lb}.end \le s_i.end + distanceToShiftEndLB
+\end{equation}
+
+$C_3$: Duration of Work Periods. Breaks divide a shift into several work and rest periods. The duration of work periods within a shift must range between a required minimum and maximum duration:
+
+\begin{equation}
+minWorkDuration \le b_1.start - s_i.start \le maxWorkDuration
+\end{equation}
+
+\begin{equation}
+minWorkDuration \le b_{j+1}.start - b_j.end \le maxWorkDuration
+\end{equation}
+
+\begin{equation}
+minWorkDuration \le s_i.end - b_m.end  \le maxWorkDuration
+\end{equation}
+
+where $(b_1,...,b_j,b_{j+1},...,b_m)$ are the breaks of $s_i$ in temporal order.
+
+$C_4$: Minimum Break Times after Work Periods. If the duration of a work period exceeds a certain limit, the break following that period must last a given minimum number of time slots ($minTsCount$):
+
+\begin{equation}
+ b_1.start - s_i.start \ge workLimit  \Rightarrow b_1.duration \ge minTsCount
+\end{equation}
+
+\begin{equation}
+ b_{j+1}.start - b_j.end \ge workLimit  \Rightarrow b_{j+1}.duration \ge minTsCount
+\end{equation}
+
+
+
+$C_5$: Break Durations. The duration of each break, $b_j$, must lie within a specified minimum and maximum value:
+
+\begin{equation}
+minDuration \le b_j.duration \le maxDuration
+\end{equation}
+
+$C_6$: Shortage of Employees. At least $w_t$ employees should be working in each time intervals, $[a_t, a_{t+1})$. Sum of the shortages of workers in each time slot during the planning period indicating the $C6$.
+
+$C_7$: Excess of Employees. At most $w_t$ employees should be working in each time intervals $[a_t, a_{t+1})$.  Sum of the excesses of workers in each time slot during the planning period indicating the $C7$.
+
+
+This is also a multi criteria optimization problem. For each soft constraint, we have weight value. These weights can be different depending on the situations. Given an instance of the break scheduling, our goal is to find a feasible solution, with minimizing the soft constraints.
