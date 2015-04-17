@@ -1,0 +1,23 @@
+#CPU Time: 
+0
+ 
+#Number of Undercover: 
+0
+ 
+#Number of Overcover: 
+0
+ 
+#Number of Shifts: 
+7
+ 
+#Fitness of assumed optimal Solution: 
+# 420
+ 
+#Shift Start Length Duties: 
+# 1:  7:0    480       0  0  0  0  0  1  1  
+# 2:  8:0    480       1  1  1  1  1  1  0  
+# 3:  9:0    420       2  4  4  4  4  4  4  
+# 4:  9:0    540       0  0  0  0  0  3  3  
+# 5:  13:0    480       0  0  0  3  2  3  3  
+# 6:  13:0    540       1  1  1  1  1  4  4  
+# 7:  22:0    480       0  0  4  0  0  3  3  

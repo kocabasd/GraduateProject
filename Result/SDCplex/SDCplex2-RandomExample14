@@ -1,0 +1,36 @@
+#CPLEX Status: 
+Optimal
+ 
+#Branch & Bound Nodes: 
+487
+ 
+#CPU Time: 
+9
+ 
+#Number of Undercover: 
+0
+ 
+#Number of Overcover: 
+0
+ 
+#Number of Shifts: 
+14
+ 
+#Fitness of assumed optimal Solution: 
+# 840
+ 
+#Shift Start Length Duties: 
+# 1:  6:0    480       5  5  5  3  9  3  3  
+# 2:  6:0    540       0  0  0  0  0  5  5  
+# 3:  8:0    540       5  5  5  2  5  2  2  
+# 4:  9:0    420       3  3  3  3  3  3  3  
+# 5:  10:0    420       4  4  1  4  4  2  4  
+# 6:  10:0    480       3  5  3  3  3  0  0  
+# 7:  11:0    420       3  0  0  0  0  0  0  
+# 8:  13:0    480       4  4  4  4  4  4  4  
+# 9:  13:0    540       4  4  4  3  4  1  1  
+# 10:  14:0    420       2  2  2  2  2  4  4  
+# 11:  15:0    540       1  1  1  0  1  4  4  
+# 12:  22:0    480       2  2  0  2  0  4  7  
+# 13:  22:0    540       1  1  3  1  3  4  1  
+# 14:  23:0    420       6  6  6  6  6  8  7  

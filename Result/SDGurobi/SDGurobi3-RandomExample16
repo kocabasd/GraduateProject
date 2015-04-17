@@ -1,0 +1,26 @@
+#CPU Time: 
+18
+ 
+#Number of Undercover: 
+5400
+ 
+#Number of Overcover: 
+4620
+ 
+#Number of Shifts: 
+10
+ 
+#Fitness of assumed optimal Solution: 
+# 10620
+ 
+#Shift Start Length Duties: 
+# 1:  5:0    480       1  2  0  2  2  3  3  
+# 2:  6:0    540       3  3  0  3  3  3  3  
+# 3:  8:0    420       10  8  11  9  8  9  10  
+# 4:  13:0    420       2  2  2  1  0  4  4  
+# 5:  13:0    540       1  0  0  0  2  2  1  
+# 6:  14:0    420       0  0  0  0  0  4  4  
+# 7:  15:0    480       11  9  10  10  9  8  9  
+# 8:  22:0    540       0  1  1  1  3  4  3  
+# 9:  23:0    480       8  4  7  7  5  4  5  
+# 10:  23:0    540       5  7  5  5  6  6  9  

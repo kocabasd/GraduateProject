@@ -1,0 +1,56 @@
+#MinuteInterval:
+60
+
+#DaysPerCycle:
+7
+
+#FlagCyclical: yes or no
+yes
+
+#Requirements:
+2 2 2 2 2 0 0 0 0 2 2 7 7 12 16 23 23 21 21 17 16 12 8 3 3 3 3 3 3 0 0 0 0 0 0 2 2 7 11 18 18 18 18 17 16 12 10 5 5 5 5 5 5 0 0 0 0 0 0 2 2 7 11 18 18 18 18 17 16 12 10 5 5 5 5 5 5 0 0 0 0 0 0 6 6 6 10 17 17 17 17 16 11 12 10 5 5 5 5 5 5 0 0 0 0 0 0 5 5 8 12 19 19 19 19 18 14 12 10 5 5 5 5 5 5 0 0 0 0 5 5 5 5 6 7 13 13 8 8 8 8 9 7 2 2 2 2 2 2 0 0 0 0 5 5 5 5 6 10 16 16 11 11 11 11 12 7 2
+
+#Number of shift templates
+4
+
+#Shift templates
+#Abbr, Full name, Start, + Minutes,  -Minutes, Length, +Minutes, -Minutes, available days
+F Frühschicht 6:0 120 60 480 60 60 *
+T Tagschicht 10:0 60 60 480 60 60 *
+S Spätschicht 14:0 60 60 480 60 60 *
+N Nachtschicht 22:0 60 60 480 60 60 *
+
+#Duties per week: Lower limit, Upper limit
+3 5
+
+# Average number of hours per week
+ 38.5
+
+# Weights about the criteria
+#UnderCover:
+1
+
+#Overcover:
+1
+
+#DutiesPerWeek:
+1000
+
+#Shifts:
+60
+
+#Fitness of assumed optimal Solution:
+# 540
+
+#Optimal Solution:
+#Shift Start Length Duties:
+# 1:  5:0    420       0  0  0  0  0  0  0
+# 2:  9:0    480       2  0  0  0  0  5  5
+# 3:  11:0    480       4  1  1  1  1  0  0
+# 4:  11:0    540       1  1  1  5  4  0  0
+# 5:  14:0    480       4  4  4  4  4  1  4
+# 6:  15:0    480       5  5  5  5  5  5  5
+# 7:  13:0    480       5  5  5  0  3  1  1
+# 8:  15:0    420       2  2  2  2  2  1  1
+# 9:  21:0    480       1  1  1  1  1  2  2
+# 10:  22:0    420       2  4  4  4  4  0  0
